@@ -1,5 +1,3 @@
-Project include compiled libes libPTAM.so and libgnustl_shared.so
-
 APTAM-GPL: Enhanced Android Port of Oxford’s PTAM-GPL (Parallel Tracking and Mapping re-released under GPLv3)
 
 Oxford’s original PTAM-GPL: https://github.com/Oxford-PTAM/PTAM-GPL
@@ -13,3 +11,7 @@ Changes and Improvements:
 - Several minor tweaks to improve speed and stability on Android devices.
 - Optional support for NCC during patch matching and further key-frame detectors.
 - Saving and loading of the map points and key frames.
+
+<H3>This fork contains:</H3>
+
+APTAM Android Studio project that includes compiled native libs libPTAM.so and libgnustl_shared.so.
