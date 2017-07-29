@@ -1,0 +1,122 @@
+obj/local/armeabi-v7a/objs/cvd/__/installfiles/cvd_src/image_io/pnm_grok.o: \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd_src/image_io/pnm_grok.cxx \
+ /opt/ndk/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/iostream \
+ /opt/ndk/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/limits \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/io/pnm_grok.h \
+ /opt/ndk/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/vector \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/convert_pixel_types.h \
+ /opt/ndk/android-ndk-r9d/platforms/android-18/arch-arm/usr/include/math.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/abs.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/scalar_convert.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/byte.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/pixel_traits.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/builtin_components.h \
+ /opt/ndk/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/cstddef \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/rgb_components.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/rgb.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/is_pod.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/rgba.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/rgb8.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/argb.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/bgrx.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/la.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/image.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/image_ref.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/exceptions.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/image_ref_implementation.hh \
+ /opt/ndk/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/utility \
+ /opt/ndk/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/iterator \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/aligned_mem.h \
+ /opt/ndk/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/cassert \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/config.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/load_and_save.h \
+ /opt/ndk/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/typeinfo \
+ /opt/ndk/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/map \
+ /opt/ndk/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/memory \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/image_convert.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/colourspace_convert.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/image_convert_fwd.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/colourspaces.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/name_builtin_types.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/name_CVD_rgb_types.h \
+ jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/io/parameter.h
+
+/opt/ndk/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/iostream:
+
+/opt/ndk/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/limits:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/io/pnm_grok.h:
+
+/opt/ndk/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/vector:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/convert_pixel_types.h:
+
+/opt/ndk/android-ndk-r9d/platforms/android-18/arch-arm/usr/include/math.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/abs.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/scalar_convert.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/byte.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/pixel_traits.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/builtin_components.h:
+
+/opt/ndk/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/cstddef:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/rgb_components.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/rgb.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/is_pod.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/rgba.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/rgb8.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/argb.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/bgrx.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/la.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/image.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/image_ref.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/exceptions.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/image_ref_implementation.hh:
+
+/opt/ndk/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/utility:
+
+/opt/ndk/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/iterator:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/aligned_mem.h:
+
+/opt/ndk/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/cassert:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/config.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/load_and_save.h:
+
+/opt/ndk/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/typeinfo:
+
+/opt/ndk/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/map:
+
+/opt/ndk/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/memory:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/image_convert.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/colourspace_convert.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/image_convert_fwd.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/colourspaces.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/name_builtin_types.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/name_CVD_rgb_types.h:
+
+jni/../ndk-modules/cvd/jni/../installfiles/cvd/internal/io/parameter.h:
