@@ -1,0 +1,26 @@
+.gradle
+/local.properties
+
+.DS_Store
+
+.idea/
+
+*.iml
+*.hprof
+captures/
+
+# generated files
+bin/
+gen/
+
+**/build
+**/assets/crashlytics-build.properties
+**/com_crashlytics_export_strings.xml
+.hprof
+
+app/local.properties
+app/gradlew
+app/gradlew.bat
+app/gradle/wrapper/gradle-wrapper.jar
+app/gradle/wrapper/gradle-wrapper.properties
+app/gradle.properties
