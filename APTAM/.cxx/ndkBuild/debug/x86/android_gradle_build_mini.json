@@ -1,0 +1,72 @@
+{
+  "buildFiles": [
+    "C:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Android.mk",
+    "C:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Application.mk"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\Pascal\\AppData\\Local\\Android\\sdk\\ndk\\20.0.5594570\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Android.mk NDK_APPLICATION_MK\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dC:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\lib clean"
+  ],
+  "buildTargetsCommand": "C:\\Users\\Pascal\\AppData\\Local\\Android\\sdk\\ndk\\20.0.5594570\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Android.mk NDK_APPLICATION_MK\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dC:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\lib {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "agast-debug-x86": {
+      "artifactName": "agast",
+      "buildCommand": "C:\\Users\\Pascal\\AppData\\Local\\Android\\sdk\\ndk\\20.0.5594570\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Android.mk NDK_APPLICATION_MK\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dC:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\lib C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj/local/x86/libagast.a",
+      "abi": "x86",
+      "output": "C:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\x86\\libagast.a"
+    },
+    "tinyxml2-debug-x86": {
+      "artifactName": "tinyxml2",
+      "buildCommand": "C:\\Users\\Pascal\\AppData\\Local\\Android\\sdk\\ndk\\20.0.5594570\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Android.mk NDK_APPLICATION_MK\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dC:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\lib C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj/local/x86/libtinyxml2.a",
+      "abi": "x86",
+      "output": "C:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\x86\\libtinyxml2.a"
+    },
+    "PTAM-debug-x86": {
+      "artifactName": "PTAM",
+      "buildCommand": "C:\\Users\\Pascal\\AppData\\Local\\Android\\sdk\\ndk\\20.0.5594570\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Android.mk NDK_APPLICATION_MK\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dC:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\lib C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj/local/x86/libPTAM.so",
+      "abi": "x86",
+      "output": "C:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\x86\\libPTAM.so"
+    },
+    "gvars3-debug-x86": {
+      "artifactName": "gvars3",
+      "buildCommand": "C:\\Users\\Pascal\\AppData\\Local\\Android\\sdk\\ndk\\20.0.5594570\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Android.mk NDK_APPLICATION_MK\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dC:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\lib C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj/local/x86/libgvars3.a",
+      "abi": "x86",
+      "output": "C:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\x86\\libgvars3.a"
+    },
+    "f2c-debug-x86": {
+      "artifactName": "f2c",
+      "buildCommand": "C:\\Users\\Pascal\\AppData\\Local\\Android\\sdk\\ndk\\20.0.5594570\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Android.mk NDK_APPLICATION_MK\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dC:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\lib C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj/local/x86/libf2c.a",
+      "abi": "x86",
+      "output": "C:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\x86\\libf2c.a"
+    },
+    "cvd-debug-x86": {
+      "artifactName": "cvd",
+      "buildCommand": "C:\\Users\\Pascal\\AppData\\Local\\Android\\sdk\\ndk\\20.0.5594570\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Android.mk NDK_APPLICATION_MK\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dC:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\lib C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj/local/x86/libcvd.a",
+      "abi": "x86",
+      "output": "C:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\x86\\libcvd.a"
+    },
+    "png-debug-x86": {
+      "artifactName": "png",
+      "buildCommand": "C:\\Users\\Pascal\\AppData\\Local\\Android\\sdk\\ndk\\20.0.5594570\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Android.mk NDK_APPLICATION_MK\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dC:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\lib C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj/local/x86/libpng.a",
+      "abi": "x86",
+      "output": "C:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\x86\\libpng.a"
+    },
+    "blas-debug-x86": {
+      "artifactName": "blas",
+      "buildCommand": "C:\\Users\\Pascal\\AppData\\Local\\Android\\sdk\\ndk\\20.0.5594570\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Android.mk NDK_APPLICATION_MK\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dC:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\lib C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj/local/x86/libblas.a",
+      "abi": "x86",
+      "output": "C:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\x86\\libblas.a"
+    },
+    "clapack-debug-x86": {
+      "artifactName": "clapack",
+      "buildCommand": "C:\\Users\\Pascal\\AppData\\Local\\Android\\sdk\\ndk\\20.0.5594570\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Android.mk NDK_APPLICATION_MK\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dC:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\lib C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj/local/x86/libclapack.a",
+      "abi": "x86",
+      "output": "C:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\x86\\libclapack.a"
+    },
+    "cpufeatures-debug-x86": {
+      "artifactName": "cpufeatures",
+      "buildCommand": "C:\\Users\\Pascal\\AppData\\Local\\Android\\sdk\\ndk\\20.0.5594570\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Android.mk NDK_APPLICATION_MK\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM_Native\\jni\\Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dC:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dC:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\lib C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj/local/x86/libcpufeatures.a",
+      "abi": "x86",
+      "output": "C:\\Users\\Pascal\\AndroidstudioProjects\\APTAM-GPL\\APTAM\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\x86\\libcpufeatures.a"
+    }
+  }
+}

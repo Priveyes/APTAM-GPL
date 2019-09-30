@@ -130,7 +130,7 @@ public class PTAM extends Activity implements GLSurfaceView.Renderer,OnTouchList
 	        	{
 	        		item.setChecked(true);
 	        		String wbmode = item.getTitle().toString();
-	        		Log.d("menu wb selected", wbmode);
+	        		Log.i/*Log.d*/("menu wb selected", wbmode);
 	        		SharedPreferences.Editor ce2 = preferences.edit();
 		        	ce2.putString("wbmode", wbmode);
 		        	ce2.commit();
@@ -167,7 +167,7 @@ public class PTAM extends Activity implements GLSurfaceView.Renderer,OnTouchList
 		}
 		fdir = this.getExternalFilesDir(null).getAbsolutePath();
 		
-		Log.d("fdir", fdir);
+		Log.i/*Log.d*/("fdir", fdir);
 		
 		copyAssets();
 		
@@ -408,13 +408,13 @@ public class PTAM extends Activity implements GLSurfaceView.Renderer,OnTouchList
 	          File outFile = new File(fdir, filename);
 	          if(outFile.exists())
 	          {
-	        	  Log.d("copy assets", "File exists: " + filename);
+	        	  Log.i/*Log.d*/("copy assets", "File exists: " + filename);
 	          }
 	          else
 	          {
 	        	  out = new FileOutputStream(outFile);
 	        	  copyFile(in, out);
-	        	  Log.d("copy assets", "File copied: " + filename);
+	        	  Log.i/*Log.d*/("copy assets", "File copied: " + filename);
 	          }
 	        } catch(IOException e) {
 	            Log.e("tag", "Failed to copy asset file: " + filename, e);

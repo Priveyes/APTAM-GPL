@@ -1,0 +1,148 @@
+C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../build/core/build-binary.mk:509: warning: overriding commands for target `C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj/local/armeabi-v7a/objs/gvars3/__/installfiles/src/gvars3.o'
+C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../build/core/build-binary.mk:509: warning: ignoring old commands for target `C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj/local/armeabi-v7a/objs/gvars3/__/installfiles/src/gvars3.o'
+C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../build/core/build-binary.mk:509: warning: overriding commands for target `C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj/local/armeabi-v7a/objs/gvars3/__/installfiles/src/gvars3.o.commands.json'
+C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../build/core/build-binary.mk:509: warning: ignoring old commands for target `C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM/build/intermediates/ndkBuild/debug/obj/local/armeabi-v7a/objs/gvars3/__/installfiles/src/gvars3.o.commands.json'
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/./PTAM/MapSerialization.cc:8:
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/PTAM/MapSerialization.h:11:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\map:480:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\__tree:16:
+C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\memory:2097:52: warning: delete called on 'CVD::Parameter<Internal::UntypedParameter>' that is abstract but has non-virtual destructor [-Wdelete-non-virtual-dtor]
+    _LIBCPP_INLINE_VISIBILITY ~auto_ptr() throw() {delete __ptr_;}
+                                                   ^
+C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/internal/io/parameter.h:81:4: note: in instantiation of member function 'std::__ndk1::auto_ptr<CVD::Parameter<Internal::UntypedParameter> >::~auto_ptr' requested here
+                        Parameter()
+                        ^
+1 warning generated.
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles/cvd_src/connected_components.cc:1:
+C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/connected_components.h:22:9: warning: 'CVD_INC_CONNECTED_COMPONENTS_H' is used as a header guard here, followed by #define of a different macro [-Wheader-guard]
+#ifndef CVD_INC_CONNECTED_COMPONENTS_H
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/connected_components.h:23:9: note: 'CVD_CONNECTED_COMPONENTS_SO2_H' is defined here; did you mean 'CVD_INC_CONNECTED_COMPONENTS_H'?
+#define CVD_CONNECTED_COMPONENTS_SO2_H
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        CVD_INC_CONNECTED_COMPONENTS_H
+1 warning generated.
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles/cvd_src/deinterlacebuffer.cc:21:
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/exceptions.h:24:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\string:505:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\string_view:176:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\__string:57:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\algorithm:644:
+C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\memory:2097:52: warning: delete called on 'CVD::Parameter<Internal::UntypedParameter>' that is abstract but has non-virtual destructor [-Wdelete-non-virtual-dtor]
+    _LIBCPP_INLINE_VISIBILITY ~auto_ptr() throw() {delete __ptr_;}
+                                                   ^
+C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/internal/io/parameter.h:81:4: note: in instantiation of member function 'std::__ndk1::auto_ptr<CVD::Parameter<Internal::UntypedParameter> >::~auto_ptr' requested here
+                        Parameter()
+                        ^
+1 warning generated.
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles/cvd_src/diskbuffer2.cc:22:
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/exceptions.h:24:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\string:505:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\string_view:176:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\__string:57:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\algorithm:644:
+C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\memory:2097:52: warning: delete called on 'CVD::Parameter<Internal::UntypedParameter>' that is abstract but has non-virtual destructor [-Wdelete-non-virtual-dtor]
+    _LIBCPP_INLINE_VISIBILITY ~auto_ptr() throw() {delete __ptr_;}
+                                                   ^
+C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/internal/io/parameter.h:81:4: note: in instantiation of member function 'std::__ndk1::auto_ptr<CVD::Parameter<Internal::UntypedParameter> >::~auto_ptr' requested here
+                        Parameter()
+                        ^
+1 warning generated.
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles/cvd_src/image_io.cc:21:
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/image_io.h:26:
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/exceptions.h:24:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\string:505:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\string_view:176:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\__string:57:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\algorithm:644:
+C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\memory:2097:52: warning: delete called on 'CVD::Parameter<Internal::UntypedParameter>' that is abstract but has non-virtual destructor [-Wdelete-non-virtual-dtor]
+    _LIBCPP_INLINE_VISIBILITY ~auto_ptr() throw() {delete __ptr_;}
+                                                   ^
+C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/internal/io/parameter.h:81:4: note: in instantiation of member function 'std::__ndk1::auto_ptr<CVD::Parameter<Internal::UntypedParameter> >::~auto_ptr' requested here
+                        Parameter()
+                        ^
+1 warning generated.
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles/cvd_src/Linux/videosource_nov4l1buffer.cc:1:
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/videosource.h:4:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\iostream:38:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\ios:216:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\__locale:15:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\string:505:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\string_view:176:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\__string:57:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\algorithm:644:
+C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\memory:2097:52: warning: delete called on 'CVD::Parameter<Internal::UntypedParameter>' that is abstract but has non-virtual destructor [-Wdelete-non-virtual-dtor]
+    _LIBCPP_INLINE_VISIBILITY ~auto_ptr() throw() {delete __ptr_;}
+                                                   ^
+C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/internal/io/parameter.h:81:4: note: in instantiation of member function 'std::__ndk1::auto_ptr<CVD::Parameter<Internal::UntypedParameter> >::~auto_ptr' requested here
+                        Parameter()
+                        ^
+1 warning generated.
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles/cvd_src/Linux/videosource_nov4lbuffer.cc:1:
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/videosource.h:4:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\iostream:38:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\ios:216:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\__locale:15:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\string:505:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\string_view:176:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\__string:57:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\algorithm:644:
+C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\memory:2097:52: warning: delete called on 'CVD::Parameter<Internal::UntypedParameter>' that is abstract but has non-virtual destructor [-Wdelete-non-virtual-dtor]
+    _LIBCPP_INLINE_VISIBILITY ~auto_ptr() throw() {delete __ptr_;}
+                                                   ^
+C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/internal/io/parameter.h:81:4: note: in instantiation of member function 'std::__ndk1::auto_ptr<CVD::Parameter<Internal::UntypedParameter> >::~auto_ptr' requested here
+                        Parameter()
+                        ^
+1 warning generated.
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles/cvd_src/thread/runnable_batch.cc:1:
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/runnable_batch.h:5:
+C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/internal/shared_ptr.h:6:30: warning: extra tokens at end of #ifdef directive [-Wextra-tokens]
+#ifdef CVD_INTERNAL_NEED_TR1 && !(defined WIN32 && !defined __MINGW32__)
+                             ^
+                             //
+1 warning generated.
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles/cvd_src/OSX/videosource_noqtbuffer.cc:1:
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/videosource.h:4:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\iostream:38:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\ios:216:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\__locale:15:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\string:505:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\string_view:176:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\__string:57:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\algorithm:644:
+C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\memory:2097:52: warning: delete called on 'CVD::Parameter<Internal::UntypedParameter>' that is abstract but has non-virtual destructor [-Wdelete-non-virtual-dtor]
+    _LIBCPP_INLINE_VISIBILITY ~auto_ptr() throw() {delete __ptr_;}
+                                                   ^
+C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/internal/io/parameter.h:81:4: note: in instantiation of member function 'std::__ndk1::auto_ptr<CVD::Parameter<Internal::UntypedParameter> >::~auto_ptr' requested here
+                        Parameter()
+                        ^
+1 warning generated.
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles/cvd_src/timeddiskbuffer.cc:21:
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/timeddiskbuffer.h:24:
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/diskbuffer2.h:24:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\vector:275:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\__bit_reference:16:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\algorithm:644:
+C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\memory:2097:52: warning: delete called on 'CVD::Parameter<Internal::UntypedParameter>' that is abstract but has non-virtual destructor [-Wdelete-non-virtual-dtor]
+    _LIBCPP_INLINE_VISIBILITY ~auto_ptr() throw() {delete __ptr_;}
+                                                   ^
+C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/internal/io/parameter.h:81:4: note: in instantiation of member function 'std::__ndk1::auto_ptr<CVD::Parameter<Internal::UntypedParameter> >::~auto_ptr' requested here
+                        Parameter()
+                        ^
+1 warning generated.
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles/cvd_src/videosource.cpp:1:
+In file included from C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/videosource.h:4:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\iostream:38:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\ios:216:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\__locale:15:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\string:505:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\string_view:176:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\__string:57:
+In file included from C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\algorithm:644:
+C:/Users/Pascal/AppData/Local/Android/sdk/ndk/20.0.5594570/build//../sources/cxx-stl/llvm-libc++/include\memory:2097:52: warning: delete called on 'CVD::Parameter<Internal::UntypedParameter>' that is abstract but has non-virtual destructor [-Wdelete-non-virtual-dtor]
+    _LIBCPP_INLINE_VISIBILITY ~auto_ptr() throw() {delete __ptr_;}
+                                                   ^
+C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/../installfiles\cvd/internal/io/parameter.h:81:4: note: in instantiation of member function 'std::__ndk1::auto_ptr<CVD::Parameter<Internal::UntypedParameter> >::~auto_ptr' requested here
+                        Parameter()
+                        ^
+1 warning generated.

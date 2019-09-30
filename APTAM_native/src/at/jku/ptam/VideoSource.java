@@ -36,7 +36,7 @@ public class VideoSource {
 	}
 	
 	public float[] getRotation() {
-		//Log.d("test rotmat",""+curFrame.rotationMatrix[0]+","+curFrame.rotationMatrix[1]+","+curFrame.rotationMatrix[2]);
+		//Log.i/*Log.d*/("test rotmat",""+curFrame.rotationMatrix[0]+","+curFrame.rotationMatrix[1]+","+curFrame.rotationMatrix[2]);
 		return curFrame.rotationMatrix;
 	}
 	

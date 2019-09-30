@@ -1,0 +1,64 @@
+Android NDK: WARNING: Ignoring unknown import directory: C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/lapack/jni/clapack/SRC/../ndk-modules    
+Android NDK: WARNING:C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/TooN/jni/Android.mk:TooN: LOCAL_LDLIBS is always ignored for static libraries    
+Android NDK: WARNING:C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/cvd/jni/Android.mk:cvd: LOCAL_LDLIBS is always ignored for static libraries    
+Android NDK: WARNING:C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/gvars3/jni/Android.mk:gvars3: LOCAL_LDLIBS is always ignored for static libraries    
+Android NDK: WARNING:C:/Users/Pascal/AndroidstudioProjects/APTAM-GPL/APTAM_Native/jni/../ndk-modules/libpng/jni/Android.mk:png: LOCAL_LDLIBS is always ignored for static libraries    
+[armeabi-v7a] Compile++ thumb: PTAM <= MapSerialization.cc
+[armeabi-v7a] Prebuilt       : libc++_shared.so <= <NDK>/sources/cxx-stl/llvm-libc++/libs/armeabi-v7a/
+[armeabi-v7a] Compile++ thumb: cvd <= convert_rgb_to_y.cc
+[armeabi-v7a] Compile++ thumb: cvd <= half_sample.cc
+[armeabi-v7a] Compile++ thumb: cvd <= bayer.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= brezenham.cc
+[armeabi-v7a] Compile++ thumb: cvd <= colourspace_convert.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= connected_components.cc
+[armeabi-v7a] Compile++ thumb: cvd <= convolution.cc
+[armeabi-v7a] Compile++ thumb: cvd <= cvd_timer.cc
+[armeabi-v7a] Compile++ thumb: cvd <= deinterlacebuffer.cc
+[armeabi-v7a] Compile++ thumb: cvd <= diskbuffer2.cc
+[armeabi-v7a] Compile++ thumb: cvd <= draw.cc
+[armeabi-v7a] Compile++ thumb: cvd <= draw_toon.cc
+[armeabi-v7a] Compile++ thumb: cvd <= eventobject.cpp
+[armeabi-v7a] Compile++ thumb: cvd <= exceptions.cc
+[armeabi-v7a] Compile++ thumb: cvd <= fast_10_detect.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= fast_10_score.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= fast_11_detect.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= fast_11_score.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= fast_12_detect.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= fast_12_score.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= fast_7_detect.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= fast_7_score.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= fast_8_detect.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= fast_8_score.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= fast_9_detect.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= fast_9_score.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= fast_corner.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= fast_corner_9_nonmax.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= image_io.cc
+[armeabi-v7a] Compile++ thumb: cvd <= videosource_nov4l1buffer.cc
+[armeabi-v7a] Compile++ thumb: cvd <= videosource_nov4lbuffer.cc
+[armeabi-v7a] Compile++ thumb: cvd <= morphology.cc
+[armeabi-v7a] Compile++ thumb: cvd <= convolve_gaussian.cc
+[armeabi-v7a] Compile++ thumb: cvd <= default_memalign.cpp
+[armeabi-v7a] Compile++ thumb: cvd <= gradient.cc
+[armeabi-v7a] Compile++ thumb: cvd <= median_3x3.cc
+[armeabi-v7a] Compile++ thumb: cvd <= two_thirds_sample.cc
+[armeabi-v7a] Compile++ thumb: cvd <= utility_byte_differences.cc
+[armeabi-v7a] Compile++ thumb: cvd <= utility_double_int.cc
+[armeabi-v7a] Compile++ thumb: cvd <= utility_float.cc
+[armeabi-v7a] Compile++ thumb: cvd <= yuv422_wrapper.cc
+[armeabi-v7a] Compile++ thumb: cvd <= nonmax_suppression.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= runnable_batch.cc
+[armeabi-v7a] Compile++ thumb: cvd <= videosource_noqtbuffer.cc
+[armeabi-v7a] Compile++ thumb: cvd <= slower_corner_10.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= slower_corner_11.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= slower_corner_12.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= slower_corner_7.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= slower_corner_8.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= slower_corner_9.cxx
+[armeabi-v7a] Compile++ thumb: cvd <= synchronized.cpp
+[armeabi-v7a] Compile++ thumb: cvd <= tensor_voting.cc
+[armeabi-v7a] Compile++ thumb: cvd <= thread.cpp
+[armeabi-v7a] Compile++ thumb: cvd <= timeddiskbuffer.cc
+[armeabi-v7a] Compile++ thumb: cvd <= videosource.cpp
+[armeabi-v7a] StaticLibrary  : libcvd.a
+[armeabi-v7a] SharedLibrary  : libPTAM.so

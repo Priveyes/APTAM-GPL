@@ -43,30 +43,30 @@ import at.jku.ptam.CameraManager.FrameListener;
 //import javax.microedition.khronos.opengles.GL11;
 
 public class PTAM extends Activity implements GLSurfaceView.Renderer, OnTouchListener, FrameListener {
-    private CameraManager cameraManager;
-    private static VideoSource vs;
+	private CameraManager cameraManager;
+	private static VideoSource vs;
 
-    private GLSurfaceView glSurfaceView;
-    private static GLText glText;
-    private static String fdir;
-    private boolean pauserender = false;
+	private GLSurfaceView glSurfaceView;
+	private static GLText glText;
+	private static String fdir;
+	private boolean pauserender = false;
 
-    private boolean requestExit = false;
+	private boolean requestExit = false;
 
-    SharedPreferences preferences;
+	SharedPreferences preferences;
 
-    static {
+	static {
 //        System.loadLibrary("gnustl_shared");
-        System.loadLibrary("PTAM");
-    }
+		System.loadLibrary("PTAM");
+	}
 
-    public static VideoSource getVideoSource() {
-        return vs;
-    }
+	public static VideoSource getVideoSource() {
+		return vs;
+	}
 
-    public static String getFDir() {
-        return fdir;
-    }
+	public static String getFDir() {
+		return fdir;
+	}
 
 	/*@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -76,218 +76,213 @@ public class PTAM extends Activity implements GLSurfaceView.Renderer, OnTouchLis
 	    return super.onCreateOptionsMenu(menu);
 	}*/
 
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v,
-                                    ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.mainmenu, menu);
-        boolean docalibration = preferences.getBoolean("docalibration", false);
-        if (docalibration)
-            menu.findItem(R.id.docalibration).setTitle("Disable Calibration");
-        SubMenu sm = menu.addSubMenu("White Balance Mode");
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,
+									ContextMenuInfo menuInfo) {
+		super.onCreateContextMenu(menu, v, menuInfo);
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.mainmenu, menu);
+		boolean docalibration = preferences.getBoolean("docalibration", false);
+		if (docalibration)
+			menu.findItem(R.id.docalibration).setTitle("Disable Calibration");
+		SubMenu sm = menu.addSubMenu("White Balance Mode");
 
-        MenuItem checkedmi = null;
-        String selectedmode = preferences.getString("wbmode", "auto");
-        for (String s : cameraManager.wbmodes) {
-            MenuItem mi = sm.add(1, Menu.NONE, Menu.NONE, s);
-            mi.setCheckable(true);
-            if (s.equalsIgnoreCase(selectedmode))
-                checkedmi = mi;
-        }
-        sm.setGroupCheckable(1, true, true);
-        if (checkedmi != null)
-            checkedmi.setChecked(true);
+		MenuItem checkedmi = null;
+		String selectedmode = preferences.getString("wbmode", "auto");
+		for (String s : cameraManager.wbmodes) {
+			MenuItem mi = sm.add(1, Menu.NONE, Menu.NONE, s);
+			mi.setCheckable(true);
+			if (s.equalsIgnoreCase(selectedmode))
+				checkedmi = mi;
+		}
+		sm.setGroupCheckable(1, true, true);
+		if (checkedmi != null)
+			checkedmi.setChecked(true);
 
-        boolean dolock = preferences.getBoolean("exposurelock", true);
-        if (!dolock)
-            menu.findItem(R.id.dolock).setTitle("Enable Exposure Lock");
+		boolean dolock = preferences.getBoolean("exposurelock", true);
+		if (!dolock)
+			menu.findItem(R.id.dolock).setTitle("Enable Exposure Lock");
+	}
 
-    }
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
 
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+			case R.id.docalibration:
+				boolean docalibration = preferences.getBoolean("docalibration", false);
+				docalibration = !docalibration;
+				SharedPreferences.Editor ce = preferences.edit();
+				ce.putBoolean("docalibration", docalibration);
+				ce.apply();
+				return true;
+			case R.id.dolock:
+				boolean dolock = preferences.getBoolean("exposurelock", true);
+				dolock = !dolock;
+				SharedPreferences.Editor ce3 = preferences.edit();
+				ce3.putBoolean("exposurelock", dolock);
+				ce3.apply();
+				return true;
+			default:
+				if (item.getGroupId() == 1) {
+					item.setChecked(true);
+					String wbmode = item.getTitle().toString();
+					Log.i/*Log.d*/("menu wb selected", wbmode);
+					SharedPreferences.Editor ce2 = preferences.edit();
+					ce2.putString("wbmode", wbmode);
+					ce2.apply();
+					cameraManager.UpdateWhiteBalanceMode();
+				}
+				return super.onContextItemSelected(item);
+		}
+	}
 
-        switch (item.getItemId()) {
-            case R.id.docalibration:
-                boolean docalibration = preferences.getBoolean("docalibration", false);
-                docalibration = !docalibration;
-                SharedPreferences.Editor ce = preferences.edit();
-                ce.putBoolean("docalibration", docalibration);
-                ce.apply();
-                return true;
-            case R.id.dolock:
-                boolean dolock = preferences.getBoolean("exposurelock", true);
-                dolock = !dolock;
-                SharedPreferences.Editor ce3 = preferences.edit();
-                ce3.putBoolean("exposurelock", dolock);
-                ce3.apply();
-                return true;
-            default:
-                if (item.getGroupId() == 1) {
-                    item.setChecked(true);
-                    String wbmode = item.getTitle().toString();
-                    Log.d("menu wb selected", wbmode);
-                    SharedPreferences.Editor ce2 = preferences.edit();
-                    ce2.putString("wbmode", wbmode);
-                    ce2.apply();
-                    cameraManager.UpdateWhiteBalanceMode();
-                }
-                return super.onContextItemSelected(item);
-        }
-    }
+	/**
+	 * Called when the activity is first created.
+	 */
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 
-    /**
-     * Called when the activity is first created.
-     */
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+		preferences = PreferenceManager.getDefaultSharedPreferences(this);
+		cameraManager = new CameraManager(preferences);
 
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
+				WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
+				WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON |
+				WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        cameraManager = new CameraManager(preferences);
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
-                WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
-                WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON |
-                WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		cameraManager.startCamera(this);
 
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		vs = new VideoSource(cameraManager);
 
+		if (!this.getExternalFilesDir(null).exists()) {
+			this.getExternalFilesDir(null).mkdirs();
+		}
+		fdir = this.getExternalFilesDir(null).getAbsolutePath();
 
-        cameraManager.startCamera(this);
+		Log.i/*Log.d*/("fdir", fdir);
 
-        vs = new VideoSource(cameraManager);
+		copyAssets();
 
-        if (!this.getExternalFilesDir(null).exists()) {
-            this.getExternalFilesDir(null).mkdirs();
-        }
-        fdir = this.getExternalFilesDir(null).getAbsolutePath();
+		glText = null;
 
-        Log.d("fdir", fdir);
+		boolean docalibration = preferences.getBoolean("docalibration", false);
+		nativeInit(docalibration);
 
-        copyAssets();
+		glSurfaceView = new GLSurfaceView(this);
+		glSurfaceView.setEGLContextClientVersion(2);
+		glSurfaceView.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
+		glSurfaceView.setPreserveEGLContextOnPause(true);
+		glSurfaceView.setRenderer(this);
+		glSurfaceView.setOnTouchListener(this);
+		glSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
+		//mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
+		setContentView(glSurfaceView);
 
+		registerForContextMenu(glSurfaceView);
 
-        glText = null;
+		cameraManager.setFrameListener(this);
+	}
 
-        boolean docalibration = preferences.getBoolean("docalibration", false);
-        nativeInit(docalibration);
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_MENU || keyCode == KeyEvent.KEYCODE_FOCUS) {
+			nativeKey(32);//space
+			return true;
+		}
+		if (keyCode == KeyEvent.KEYCODE_CAMERA) {
+			cameraManager.FixCameraSettings();
+		}
+		if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
+			nativeKey(32);
+			return true;
+		}
+		if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+			cameraManager.FixCameraSettings();
+			//nativeKey(13);//enter
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
 
-        glSurfaceView = new GLSurfaceView(this);
-        glSurfaceView.setEGLContextClientVersion(2);
-        glSurfaceView.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
-        glSurfaceView.setPreserveEGLContextOnPause(true);
-        glSurfaceView.setRenderer(this);
-        glSurfaceView.setOnTouchListener(this);
-        glSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
-        //mGLView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
-        setContentView(glSurfaceView);
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		super.onConfigurationChanged(newConfig);
+	}
 
-        registerForContextMenu(glSurfaceView);
+	@Override
+	public void onResume() {
+		super.onResume();
+		glSurfaceView.onResume();
+	}
 
-        cameraManager.setFrameListener(this);
-    }
+	@Override
+	public void onPause() {
+		super.onPause();
+		glSurfaceView.onPause();
+	}
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_MENU || keyCode == KeyEvent.KEYCODE_FOCUS) {
-            nativeKey(32);//space
-            return true;
-        }
-        if (keyCode == KeyEvent.KEYCODE_CAMERA) {
-            cameraManager.FixCameraSettings();
-        }
-        if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
-            nativeKey(32);
-            return true;
-        }
-        if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
-            cameraManager.FixCameraSettings();
-            //nativeKey(13);//enter
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
+	@Override
+	public void onStop() {
+		cameraManager.stopCamera();
+		nativeDestroy();
+		super.onStop();
+		System.exit(0);//hack
+	}
 
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-    }
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+	}
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        glSurfaceView.onResume();
-    }
+	@Override
+	public void onBackPressed() {
+		new AlertDialog.Builder(this)
+				.setTitle("Really Exit?")
+				.setMessage("Are you sure you want to exit?")
+				.setNegativeButton(android.R.string.no, null)
+				.setPositiveButton(android.R.string.yes, new OnClickListener() {
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        glSurfaceView.onPause();
-    }
+					public void onClick(DialogInterface arg0, int arg1) {
+						requestExit = true;
+					}
+				}).create().show();
+	}
 
-    @Override
-    public void onStop() {
-        cameraManager.stopCamera();
-        nativeDestroy();
-        super.onStop();
-        System.exit(0);//hack
-    }
+	@Override
+	public boolean onTouch(View v, MotionEvent event) {
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
+		if (event.getAction() == MotionEvent.ACTION_DOWN) {
+			int x = (int) event.getX();
+			int y = (int) event.getY();
+			nativeClick(x, y);
+			return false;
+		}
+		return false;
+	}
 
-    @Override
-    public void onBackPressed() {
-        new AlertDialog.Builder(this)
-                .setTitle("Really Exit?")
-                .setMessage("Are you sure you want to exit?")
-                .setNegativeButton(android.R.string.no, null)
-                .setPositiveButton(android.R.string.yes, new OnClickListener() {
+	@Override
+	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        requestExit = true;
-                    }
-                }).create().show();
-    }
+		cameraManager.createRenderTexture();
 
-    @Override
-    public boolean onTouch(View v, MotionEvent event) {
+		// Create the GLText
+		glText = new GLText(this.getAssets());
 
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            int x = (int) event.getX();
-            int y = (int) event.getY();
-            nativeClick(x, y);
-            return false;
-        }
-        return false;
-    }
+		// Load the font from file (set size + padding), creates the texture
+		// NOTE: after a successful call to this the font is ready for rendering!
+		glText.load("Roboto-Regular.ttf", 14, 2, 2);  // Create Font (Height: 14 Pixels / X+Y Padding 2 Pixels)
 
-    @Override
-    public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+		nativeInitGL();
+	}
 
-        cameraManager.createRenderTexture();
+	@Override
+	public void onSurfaceChanged(GL10 gl, int width, int height) {
+		//gl.glViewport(0, 0, width, height);
 
-        // Create the GLText
-        glText = new GLText(this.getAssets());
-
-        // Load the font from file (set size + padding), creates the texture
-        // NOTE: after a successful call to this the font is ready for rendering!
-        glText.load("Roboto-Regular.ttf", 14, 2, 2);  // Create Font (Height: 14 Pixels / X+Y Padding 2 Pixels)
-
-        nativeInitGL();
-
-    }
-
-    @Override
-    public void onSurfaceChanged(GL10 gl, int width, int height) {
-        //gl.glViewport(0, 0, width, height);
-
-        // Setup orthographic projection
+		// Setup orthographic projection
 	      /*gl.glMatrixMode( GL10.GL_PROJECTION );  
 	      gl.glLoadIdentity();                      
 	      gl.glOrthof(                              
@@ -296,141 +291,140 @@ public class PTAM extends Activity implements GLSurfaceView.Renderer, OnTouchLis
 	         -1.0f, 1.0f
 	      );*/
 
-        nativeResize(width, height);
-    }
+		nativeResize(width, height);
+	}
 
-    @Override
-    public void onDrawFrame(GL10 gl) {
-        if (!pauserender) {
-            android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_AUDIO); //probably does not help
+	@Override
+	public void onDrawFrame(GL10 gl) {
+		if (!pauserender) {
+			android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_AUDIO); //probably does not help
 
-            //wait for new camera frame
-            int count = 0;
-            while (!cameraManager.isCameraImageReady() && count < 100) {
-                try {
-                    count++;
-                    Thread.sleep(5);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (count == 100)
-                Log.e("Timeout", "Timeout while waiting for next camera image!");
-            if (cameraManager.isCameraImageReady()) {
-                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-                GLES20.glClear(GLES10.GL_COLOR_BUFFER_BIT | GLES10.GL_DEPTH_BUFFER_BIT);
-                //gl.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-                //gl.glClear(GLES10.GL_COLOR_BUFFER_BIT|GLES10.GL_DEPTH_BUFFER_BIT);
-                if (requestExit) {
-                    if (nativeFinish()) {
-                        //wait some ms
-                        try {
-                            Thread.sleep(100);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        if (nativeFinish())
-                            finish();
-                    }
-                } else
-                    nativeRender();
-            }
+			//wait for new camera frame
+			int count = 0;
+			while (!cameraManager.isCameraImageReady() && count < 100) {
+				try {
+					count++;
+					Thread.sleep(5);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			if (count == 100)
+				Log.e("Timeout", "Timeout while waiting for next camera image!");
+			if (cameraManager.isCameraImageReady()) {
+				GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+				GLES20.glClear(GLES10.GL_COLOR_BUFFER_BIT | GLES10.GL_DEPTH_BUFFER_BIT);
+				//gl.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+				//gl.glClear(GLES10.GL_COLOR_BUFFER_BIT|GLES10.GL_DEPTH_BUFFER_BIT);
+				if (requestExit) {
+					if (nativeFinish()) {
+						//wait some ms
+						try {
+							Thread.sleep(100);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+						if (nativeFinish())
+							finish();
+					}
+				} else
+					nativeRender();
+			}
 		      /*gl.glMatrixMode( GL10.GL_MODELVIEW );      
 		      gl.glLoadIdentity();*/
-            //gl.glColor4f(1, 0, 0, 1);
-            //drawText("test",100,10);
-        }
-    }
+			//gl.glColor4f(1, 0, 0, 1);
+			//drawText("test",100,10);
+		}
+	}
 
-    public static void drawText(String text, int x, int y, int shaderid) {
-        //This is a quick and dirty hack to get text rendering support to Opengl ES 2.0, shader is defined in cpp part, ...
-        if (glText != null) {
-            glText.EnableGLSettings();
+	public static void drawText(String text, int x, int y, int shaderid) {
+		//This is a quick and dirty hack to get text rendering support to Opengl ES 2.0, shader is defined in cpp part, ...
+		if (glText != null) {
+			glText.EnableGLSettings();
 
-            glText.begin(shaderid);
-            glText.draw(text, x, y);
-            glText.end();
+			glText.begin(shaderid);
+			glText.draw(text, x, y);
+			glText.end();
 
-            glText.DisableGLSettings();
-        }
-    }
+			glText.DisableGLSettings();
+		}
+	}
 
-    /*
-     * A native method that is implemented by the 'hello-ptam' native library,
-     * which is packaged with this application.
-     */
-    private native void nativeInit(boolean docalibration);
+	/*
+	 * A native method that is implemented by the 'hello-ptam' native library,
+	 * which is packaged with this application.
+	 */
+	private native void nativeInit(boolean docalibration);
 
-    private native void nativeDestroy();
+	private native void nativeDestroy();
 
-    private native void nativeInitGL();
+	private native void nativeInitGL();
 
-    private native void nativeResize(int w, int h);
+	private native void nativeResize(int w, int h);
 
-    private native void nativeRender();
+	private native void nativeRender();
 
-    private native boolean nativeFinish();
+	private native boolean nativeFinish();
 
-    //private static native void nativeDone();
-    private native void nativeClick(int x, int y);
+	//private static native void nativeDone();
+	private native void nativeClick(int x, int y);
 
-    private native void nativeKey(int keycode);
+	private native void nativeKey(int keycode);
 
-    @Override
-    public void onFrameReady() {
-        glSurfaceView.requestRender();
-    }
+	@Override
+	public void onFrameReady() {
+		glSurfaceView.requestRender();
+	}
 
-    private void copyAssets() {
-        AssetManager assetManager = getAssets();
-        String[] files = null;
-        try {
-            files = assetManager.list("");
-        } catch (IOException e) {
-            Log.e("tag", "Failed to get asset file list.", e);
-        }
-        for (String filename : files) {
-            if (!filename.endsWith(".cfg"))//hack to skip non cfg files
-                continue;
-            InputStream in = null;
-            OutputStream out = null;
-            try {
-                in = assetManager.open(filename);
-                File outFile = new File(fdir, filename);
-                if (outFile.exists()) {
-                    Log.d("copy assets", "File exists: " + filename);
-                } else {
-                    out = new FileOutputStream(outFile);
-                    copyFile(in, out);
-                    Log.d("copy assets", "File copied: " + filename);
-                }
-            } catch (IOException e) {
-                Log.e("tag", "Failed to copy asset file: " + filename, e);
-            } finally {
-                if (in != null) {
-                    try {
-                        in.close();
-                    } catch (IOException e) {
-                        // NOOP
-                    }
-                }
-                if (out != null) {
-                    try {
-                        out.close();
-                    } catch (IOException e) {
-                        // NOOP
-                    }
-                }
-            }
-        }
-    }
+	private void copyAssets() {
+		AssetManager assetManager = getAssets();
+		String[] files = null;
+		try {
+			files = assetManager.list("");
+		} catch (IOException e) {
+			Log.e("tag", "Failed to get asset file list.", e);
+		}
+		for (String filename : files) {
+			if (!filename.endsWith(".cfg"))//hack to skip non cfg files
+				continue;
+			InputStream in = null;
+			OutputStream out = null;
+			try {
+				in = assetManager.open(filename);
+				File outFile = new File(fdir, filename);
+				if (outFile.exists()) {
+					Log.i/*Log.d*/("copy assets", "File exists: " + filename);
+				} else {
+					out = new FileOutputStream(outFile);
+					copyFile(in, out);
+					Log.i/*Log.d*/("copy assets", "File copied: " + filename);
+				}
+			} catch (IOException e) {
+				Log.e("tag", "Failed to copy asset file: " + filename, e);
+			} finally {
+				if (in != null) {
+					try {
+						in.close();
+					} catch (IOException e) {
+						// NOOP
+					}
+				}
+				if (out != null) {
+					try {
+						out.close();
+					} catch (IOException e) {
+						// NOOP
+					}
+				}
+			}
+		}
+	}
 
-    private void copyFile(InputStream in, OutputStream out) throws IOException {
-        byte[] buffer = new byte[1024];
-        int read;
-        while ((read = in.read(buffer)) != -1) {
-            out.write(buffer, 0, read);
-        }
-    }
-
+	private void copyFile(InputStream in, OutputStream out) throws IOException {
+		byte[] buffer = new byte[1024];
+		int read;
+		while ((read = in.read(buffer)) != -1) {
+			out.write(buffer, 0, read);
+		}
+	}
 }

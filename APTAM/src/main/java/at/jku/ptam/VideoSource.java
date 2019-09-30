@@ -16,31 +16,30 @@ public class VideoSource {
 	}
 
 	public byte[] getFrame() {
-		if(curFrame!=null)
-		{
+		if (curFrame != null) {
 			camera.freeCameraFrame(curFrame);
 			curFrame = null;
 		}
 
 		curFrame = camera.getCameraFrame();
 
-		if(curFrame!=null)
+		if (curFrame != null)
 			return curFrame.imdata;
 		else
 			return null;
 	}
-	
+
 	public int[] getSize() {
-		int[] size = { camera.GetSize().width, camera.GetSize().height };
+		int[] size = {camera.GetSize().width, camera.GetSize().height};
 		return size;
 	}
-	
+
 	public float[] getRotation() {
-		//Log.d("test rotmat",""+curFrame.rotationMatrix[0]+","+curFrame.rotationMatrix[1]+","+curFrame.rotationMatrix[2]);
+		//Log.i/*Log.d*/("test rotmat",""+curFrame.rotationMatrix[0]+","+curFrame.rotationMatrix[1]+","+curFrame.rotationMatrix[2]);
 		return curFrame.rotationMatrix;
 	}
-	
-	public void changeBrightness(int change){
+
+	public void changeBrightness(int change) {
 		camera.changeBrightness(change);
 	}
 }

@@ -70,13 +70,13 @@ class CameraManager implements Camera.PreviewCallback, SensorEventListener {
 	public void IncOffset()
 	{
 		frametimeoffset += 10*1000000;
-		Log.d("inc offset", ""+frametimeoffset);
+		Log.i/*Log.d*/("inc offset", ""+frametimeoffset);
 	}
 	
 	public void DecOffset()
 	{
 		frametimeoffset -= 10*1000000;
-		Log.d("dec offset", ""+frametimeoffset);
+		Log.i/*Log.d*/("dec offset", ""+frametimeoffset);
 	}
 	
 	public Size GetSize()
@@ -160,10 +160,10 @@ class CameraManager implements Camera.PreviewCallback, SensorEventListener {
 			int pwidth = 640;
 			int pheight = 480;
 			
-			/*Log.d("BT200", Build.MODEL);
+			/*Log.i/*Log.d*/("BT200", Build.MODEL);
 			if(Build.MODEL.equalsIgnoreCase("embt2"))
 			{
-				Log.d("BT200", "low resolution");
+				Log.i/*Log.d*/("BT200", "low resolution");
 				pwidth = 640;
 				pheight = 480;
 			}*/
@@ -310,11 +310,11 @@ class CameraManager implements Camera.PreviewCallback, SensorEventListener {
 		
 				camera.autoFocus(null); //todo show message to user to hold camera still until focus done?
 				//camera.startPreview();
-				Log.d("Camera", "Camera Settings Fixed!");
+				Log.i/*Log.d*/("Camera", "Camera Settings Fixed!");
 				
-				Log.d("Camera","Exposure: "+params.getExposureCompensation());
-				Log.d("Camera","WB: "+params.getWhiteBalance());
-				Log.d("Camera","Scene: "+params.getSceneMode());
+				Log.i/*Log.d*/("Camera","Exposure: "+params.getExposureCompensation());
+				Log.i/*Log.d*/("Camera","WB: "+params.getWhiteBalance());
+				Log.i/*Log.d*/("Camera","Scene: "+params.getSceneMode());
 				
 				//hack
 				resetdiff=true;
@@ -330,7 +330,7 @@ class CameraManager implements Camera.PreviewCallback, SensorEventListener {
 			{
 				//todo check if supported
 				Camera.Parameters params = camera.getParameters();
-				Log.d("Camera","Changed Brightness from: "+params.getExposureCompensation());
+				Log.i/*Log.d*/("Camera","Changed Brightness from: "+params.getExposureCompensation());
 				int curex = params.getExposureCompensation()+change;
 				if(curex >= params.getMinExposureCompensation() && curex <= params.getMaxExposureCompensation())
 					params.setExposureCompensation(curex);
@@ -338,7 +338,7 @@ class CameraManager implements Camera.PreviewCallback, SensorEventListener {
 					params.setAutoExposureLock(false);
 				else
 					params.setAutoExposureLock(true);
-				Log.d("Camera","Changed Brightness to: "+params.getExposureCompensation());
+				Log.i/*Log.d*/("Camera","Changed Brightness to: "+params.getExposureCompensation());
 				camera.setParameters(params);
 			}
 		}
@@ -407,9 +407,9 @@ class CameraManager implements Camera.PreviewCallback, SensorEventListener {
 		}
 		
 		/*if(spos > cpos)
-			Log.d("diff pos", ""+(spos-cpos));
+			Log.i/*Log.d*/("diff pos", ""+(spos-cpos));
 		else
-			Log.d("diff pos", ""+(capacity+spos-cpos));*/
+			Log.i/*Log.d*/("diff pos", ""+(capacity+spos-cpos));*/
 		
 		if(cpos==(capacity+spos-1)%capacity || Math.abs(sensorHistory[cpos].timestamp-ts) < Math.abs(sensorHistory[(cpos+1)%capacity].timestamp-ts))
 			return sensorHistory[cpos];
@@ -432,11 +432,11 @@ class CameraManager implements Camera.PreviewCallback, SensorEventListener {
 	public void onSensorChanged(SensorEvent event) {
 		//long diff = event.timestamp - lastts;
 		//lastts = event.timestamp;
-		//Log.d("TS Sensor", ""+(diff*0.000001));
+		//Log.i/*Log.d*/("TS Sensor", ""+(diff*0.000001));
 		if(nummeas<1000)
 		{
 			long sts = System.nanoTime();
-			//Log.d("timing", ""+sts+","+event.timestamp);
+			//Log.i/*Log.d*/("timing", ""+sts+","+event.timestamp);
 			sts = event.timestamp-sts;
 			//stsdiffsum = stsdiffsum.add(BigInteger.valueOf(sts));
 			nummeas++;
@@ -446,7 +446,7 @@ class CameraManager implements Camera.PreviewCallback, SensorEventListener {
 					//stsdiffsum.divide(BigInteger.valueOf(nummeas)).longValue();
 			
 			if(nummeas==1000)
-				Log.d("TS Sensor", "time calib done...");
+				Log.i/*Log.d*/("TS Sensor", "time calib done...");
 		}
 		else
 		{
