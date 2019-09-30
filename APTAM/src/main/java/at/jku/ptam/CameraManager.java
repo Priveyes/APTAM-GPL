@@ -14,6 +14,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
+
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
 import android.hardware.Camera.Size;
@@ -152,6 +153,13 @@ class CameraManager implements Camera.PreviewCallback, SensorEventListener {
 			Log.i("Camera", "Camera params:" + camparams.flatten());
 
 			int imageFormat = ImageFormat.NV21; //should be supported on almost any device
+			/*
+			YCrCb format used for images, which uses the NV21 encoding format.
+			This is the default format for Camera preview images, when not otherwise set with setPreviewFormat(int).
+			For the android.hardware.camera2 API, the YUV_420_888 format is recommended for YUV output instead.
+			 */
+			// TODO Not true, camera2 dont really like it...
+//			imageFormat = ImageFormat.YUV_420_888;
 
 			//find fastest supported framerate
 			List<int[]> supportedFPSRanges = camparams.getSupportedPreviewFpsRange();

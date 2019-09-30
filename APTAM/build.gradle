@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "at.jku.ptam"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 29
 
         ndk {
