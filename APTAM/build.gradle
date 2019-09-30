@@ -12,8 +12,8 @@ android {
         ndk {
             moduleName "PTAM"
             abiFilters = []
-            abiFilters.addAll(['arm64-v8a','armeabi-v7a'])
-
+//            abiFilters.addAll(['arm64-v8a','armeabi-v7a'])
+            abiFilters.addAll(['arm64-v8a'])
             stl = "c++_shared"
         }
     }
@@ -26,12 +26,13 @@ android {
     }
     sourceSets.main {
         jni.srcDirs = []
-        jniLibs.srcDir 'src/main/jniLibs'
+        jniLibs.srcDir 'src/main/jniLibs' //Use PTAM_Native ? instead of copy/past
     }
 
     externalNativeBuild {
         ndkBuild {
-            path file('../APTAM_Native/jni/Android.mk')
+            // Comment/UnComment to compile each time or use existing .so library
+//            path file('../APTAM_Native/jni/Android.mk')
         }
     }
     compileOptions {

@@ -22,11 +22,13 @@
 #include "KeyFrame.h"
 #include "MapPoint.h"
 #include "ATANCamera.h"
-#include <queue>
-#include <pthread.h>          // std::mutex
+//#include <queue>
+//#include <pthread.h>          // std::mutex
 
-#include <unordered_set>
+//#include <unordered_set>
 #include "threadpool.h"
+#include "../../../../../AppData/Local/Android/sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/queue"
+#include "../../../../../AppData/Local/Android/sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/unordered_set"
 
 #include <MapSerialization.h>
 
@@ -42,13 +44,16 @@ struct MapMakerData
   inline int GoodMeasCount()            
   {  return sMeasurementKFs.size(); }
 
-  inline XMLElement* save(MapSerializationHelper& helper)
+    inline int NeverRetryCount()
+    {  return sNeverRetryKFs.size(); }
+
+    inline XMLElement* save(MapSerializationHelper& helper)
   {
 	  XMLDocument* doc = helper.GetXMLDocument();
 	  XMLElement *mmdata = doc->NewElement("MapMakerData");
 
 	  XMLElement *mkfs = doc->NewElement("MeasurementKFs");
-	  mkfs->SetAttribute("size",sMeasurementKFs.size());
+      mkfs->SetAttribute("size", GoodMeasCount()/*sMeasurementKFs.size()*/);
 
 	  stringstream ss;
 	  //for(int i = 0; i < sMeasurementKFs.size(); i++)
@@ -61,7 +66,7 @@ struct MapMakerData
 	  mmdata->InsertEndChild(mkfs);
 
 	  XMLElement *nrkfs = doc->NewElement("NeverRetryKFs");
-	  nrkfs->SetAttribute("size",sNeverRetryKFs.size());
+	  nrkfs->SetAttribute("size", NeverRetryCount()/*sNeverRetryKFs.size()*/);
 
 	  stringstream ss2;
 	  //for(int i = 0; i < sNeverRetryKFs.size(); i++)
