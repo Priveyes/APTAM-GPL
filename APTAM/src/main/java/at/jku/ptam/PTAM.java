@@ -9,7 +9,6 @@ import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.opengl.GLES10;
-import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -35,10 +34,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+//import javax.microedition.khronos.egl.EGLConfig;
+//import javax.microedition.khronos.opengles.GL10;
+
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 import at.jku.ptam.CameraManager.FrameListener;
+
+import static android.opengl.GLES20.GL_COLOR_BUFFER_BIT;
+import static android.opengl.GLES20.GL_DEPTH_BUFFER_BIT;
+import static android.opengl.GLES20.glClear;
+import static android.opengl.GLES20.glClearColor;
 
 //import javax.microedition.khronos.opengles.GL11;
 
@@ -264,7 +271,7 @@ public class PTAM extends Activity implements GLSurfaceView.Renderer, OnTouchLis
 	}
 
 	@Override
-	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+	public void onSurfaceCreated(GL10 ignored, EGLConfig config) {
 
 		cameraManager.createRenderTexture();
 
@@ -279,7 +286,7 @@ public class PTAM extends Activity implements GLSurfaceView.Renderer, OnTouchLis
 	}
 
 	@Override
-	public void onSurfaceChanged(GL10 gl, int width, int height) {
+	public void onSurfaceChanged(GL10 ignored, int width, int height) {
 		//gl.glViewport(0, 0, width, height);
 
 		// Setup orthographic projection
@@ -295,7 +302,7 @@ public class PTAM extends Activity implements GLSurfaceView.Renderer, OnTouchLis
 	}
 
 	@Override
-	public void onDrawFrame(GL10 gl) {
+	public void onDrawFrame(GL10 ignored) {
 		if (!pauserender) {
 			android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_AUDIO); //probably does not help
 
@@ -312,8 +319,8 @@ public class PTAM extends Activity implements GLSurfaceView.Renderer, OnTouchLis
 			if (count == 100)
 				Log.e("Timeout", "Timeout while waiting for next camera image!");
 			if (cameraManager.isCameraImageReady()) {
-				GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-				GLES20.glClear(GLES10.GL_COLOR_BUFFER_BIT | GLES10.GL_DEPTH_BUFFER_BIT);
+				/*GLES20.*/glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+				/*GLES20.*/glClear(/*GLES10.*/GL_COLOR_BUFFER_BIT | /*GLES10.*/GL_DEPTH_BUFFER_BIT);
 				//gl.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 				//gl.glClear(GLES10.GL_COLOR_BUFFER_BIT|GLES10.GL_DEPTH_BUFFER_BIT);
 				if (requestExit) {

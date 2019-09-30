@@ -8,6 +8,9 @@ import android.util.FloatMath;
 //import javax.microedition.khronos.opengles.GL10;
 import android.opengl.GLES20;
 
+import static android.opengl.GLES20.GL_TRIANGLES;
+import static android.opengl.GLES20.glBindTexture;
+
 public class SpriteBatch {
 
    //--Constants--//
@@ -57,7 +60,7 @@ public class SpriteBatch {
    // A: textureId - the ID of the texture to use for the batch
    // R: [none]
    public void beginBatch(int textureId)  {
-	   GLES20.glBindTexture( GLES20.GL_TEXTURE_2D, textureId );  // Bind the Texture
+	  /*GLES20.*/glBindTexture( GLES20.GL_TEXTURE_2D, textureId );  // Bind the Texture
       numSprites = 0;                                 // Empty Sprite Counter
       bufferIndex = 0;                                // Reset Buffer Index (Empty)
    }
@@ -74,7 +77,7 @@ public class SpriteBatch {
       if ( numSprites > 0 )  {                        // IF Any Sprites to Render
          vertices.setVertices( vertexBuffer, 0, bufferIndex );  // Set Vertices from Buffer
          vertices.bind(shaderid);                             // Bind Vertices
-         vertices.draw( GLES20.GL_TRIANGLES, 0, numSprites * INDICES_PER_SPRITE );  // Render Batched Sprites
+         vertices.draw(/*GLES20.*/GL_TRIANGLES, 0, numSprites * INDICES_PER_SPRITE );  // Render Batched Sprites
          vertices.unbind();                           // Unbind Vertices
       }
    }

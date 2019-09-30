@@ -108,7 +108,7 @@ class CameraManager implements Camera.PreviewCallback, SensorEventListener {
 
 			//wich sensors are available (XA1 havent gyro...)
 			List<Sensor> deviceSensors = mSensorManager.getSensorList(Sensor.TYPE_ALL);
-			deviceSensors.forEach(s->System.out.println(s.toString()));
+//			deviceSensors.forEach(s->System.out.println(s.toString()));
 			/*
 2019-09-30 14:39:28.208 22466-22466/? I/System.out: {Sensor name="ACCELEROMETER", vendor="MTK", version=1, type=1, maxRange=39.2266, resolution=0.0012, power=0.001, minDelay=10000}
 2019-09-30 14:39:28.209 22466-22466/? I/System.out: {Sensor name="MAGNETOMETER", vendor="MTK", version=1, type=2, maxRange=4912.0, resolution=0.15, power=0.001, minDelay=20000}
@@ -157,9 +157,9 @@ class CameraManager implements Camera.PreviewCallback, SensorEventListener {
 			YCrCb format used for images, which uses the NV21 encoding format.
 			This is the default format for Camera preview images, when not otherwise set with setPreviewFormat(int).
 			For the android.hardware.camera2 API, the YUV_420_888 format is recommended for YUV output instead.
-			 */
-			// TODO Not true, camera2 dont really like it...
-//			imageFormat = ImageFormat.YUV_420_888;
+			TODO Not true, camera2 dont really like it...
+*/
+			//			imageFormat = ImageFormat.YUV_420_888;
 
 			//find fastest supported framerate
 			List<int[]> supportedFPSRanges = camparams.getSupportedPreviewFpsRange();

@@ -9,7 +9,16 @@ import java.nio.IntBuffer;
 import java.nio.ShortBuffer;
 
 //import javax.microedition.khronos.opengles.GL10;
-import android.opengl.GLES20;
+//import android.opengl.GLES20;
+
+import static android.opengl.GLES20.GL_FLOAT;
+import static android.opengl.GLES20.GL_UNSIGNED_SHORT;
+import static android.opengl.GLES20.glDrawArrays;
+import static android.opengl.GLES20.glDrawElements;
+import static android.opengl.GLES20.glEnableVertexAttribArray;
+import static android.opengl.GLES20.glGetAttribLocation;
+import static android.opengl.GLES20.glGetUniformLocation;
+import static android.opengl.GLES20.glVertexAttribPointer;
 
 public class Vertices {
 
@@ -121,8 +130,8 @@ public class Vertices {
 	   int textshader = shaderid;
 	   //GLES20.glEnableClientState( GLES20.GL_VERTEX_ARRAY ); // Enable Position in Vertices
       vertices.position( 0 ); // Set Vertex Buffer to Position
-      GLES20.glEnableVertexAttribArray(GLES20.glGetAttribLocation(textshader, "position"));
-      GLES20.glVertexAttribPointer(GLES20.glGetAttribLocation(textshader, "position"), positionCnt, GLES20.GL_FLOAT, false, vertexSize, vertices);
+      /*GLES20.*/glEnableVertexAttribArray(/*GLES20.*/glGetAttribLocation(textshader, "position"));
+      /*GLES20.*/glVertexAttribPointer(/*GLES20.*/glGetAttribLocation(textshader, "position"), positionCnt, /*GLES20.*/GL_FLOAT, false, vertexSize, vertices);
       //GLES20.glVertexPointer( positionCnt, GLES20.GL_FLOAT, vertexSize, vertices );  // Set Vertex Pointer
 
       if ( hasColor )  {                              // IF Vertices Have Color
@@ -135,8 +144,8 @@ public class Vertices {
       if ( hasTexCoords )  {                          // IF Vertices Have Texture Coords
     	  //GLES20.glEnableClientState( GLES20.GL_TEXTURE_COORD_ARRAY );  // Enable Texture Coords in Vertices
          vertices.position( positionCnt + ( hasColor ? COLOR_CNT : 0 ) );  // Set Vertex Buffer to Texture Coords (NOTE: position based on whether color is also specified)
-         GLES20.glEnableVertexAttribArray(GLES20.glGetAttribLocation(textshader, "texCoord"));
-         GLES20.glVertexAttribPointer(GLES20.glGetAttribLocation(textshader, "texCoord"), TEXCOORD_CNT, GLES20.GL_FLOAT, false, vertexSize, vertices);
+         glEnableVertexAttribArray(/*GLES20.*/glGetAttribLocation(textshader, "texCoord"));
+         glVertexAttribPointer(/*GLES20.*/glGetAttribLocation(textshader, "texCoord"), TEXCOORD_CNT, /*GLES20.*/GL_FLOAT, false, vertexSize, vertices);
          //GLES20.glTexCoordPointer( TEXCOORD_CNT, GLES20.GL_FLOAT, vertexSize, vertices );  // Set Texture Coords Pointer
       }
 
@@ -157,10 +166,10 @@ public class Vertices {
    public void draw(int primitiveType, int offset, int numVertices)  {
       if ( indices != null )  {                       // IF Indices Exist
          indices.position( offset );                  // Set Index Buffer to Specified Offset
-         GLES20.glDrawElements( primitiveType, numVertices, GLES20.GL_UNSIGNED_SHORT, indices );  // Draw Indexed
+         /*GLES20.*/glDrawElements( primitiveType, numVertices, /*GLES20.*/GL_UNSIGNED_SHORT, indices );  // Draw Indexed
       }
       else  {                                         // ELSE No Indices Exist
-    	  GLES20.glDrawArrays( primitiveType, offset, numVertices );  // Draw Direct (Array)
+    	  /*GLES20.*/glDrawArrays( primitiveType, offset, numVertices );  // Draw Direct (Array)
       }
    }
 
@@ -191,8 +200,8 @@ public class Vertices {
 	   //GLES20.glEnableClientState( GLES20.GL_VERTEX_ARRAY ); // Enable Position in Vertices
       vertices.position( 0 );                         // Set Vertex Buffer to Position
       //GLES20.glVertexPointer( positionCnt, GLES20.GL_FLOAT, vertexSize, vertices );  // Set Vertex Pointer
-      GLES20.glEnableVertexAttribArray(GLES20.glGetUniformLocation(textshader, "position"));
-      GLES20.glVertexAttribPointer(GLES20.glGetUniformLocation(textshader, "position"), positionCnt, GLES20.GL_FLOAT, false, vertexSize, vertices);
+      glEnableVertexAttribArray(/*GLES20.*/glGetUniformLocation(textshader, "position"));
+      glVertexAttribPointer(/*GLES20.*/glGetUniformLocation(textshader, "position"), positionCnt, /*GLES20.*/GL_FLOAT, false, vertexSize, vertices);
       
 
       /*if ( hasColor )  {                              // IF Vertices Have Color
@@ -205,16 +214,16 @@ public class Vertices {
     	  //GLES20.glEnableClientState( GLES20.GL_TEXTURE_COORD_ARRAY );  // Enable Texture Coords in Vertices
          vertices.position( positionCnt + ( hasColor ? COLOR_CNT : 0 ) );  // Set Vertex Buffer to Texture Coords (NOTE: position based on whether color is also specified)
          //GLES20.glTexCoordPointer( TEXCOORD_CNT, GLES20.GL_FLOAT, vertexSize, vertices );  // Set Texture Coords Pointer
-         GLES20.glEnableVertexAttribArray(GLES20.glGetUniformLocation(textshader, "texCoord"));
-         GLES20.glVertexAttribPointer(GLES20.glGetUniformLocation(textshader, "texCoord"), TEXCOORD_CNT, GLES20.GL_FLOAT, false, vertexSize, vertices);
+         glEnableVertexAttribArray(/*GLES20.*/glGetUniformLocation(textshader, "texCoord"));
+         glVertexAttribPointer(/*GLES20.*/glGetUniformLocation(textshader, "texCoord"), TEXCOORD_CNT, /*GLES20.*/GL_FLOAT, false, vertexSize, vertices);
       }
 
       if ( indices != null )  {                       // IF Indices Exist
          indices.position( offset );                  // Set Index Buffer to Specified Offset
-         GLES20.glDrawElements( primitiveType, numVertices, GLES20.GL_UNSIGNED_SHORT, indices );  // Draw Indexed
+         glDrawElements( primitiveType, numVertices, /*GLES20.*/GL_UNSIGNED_SHORT, indices );  // Draw Indexed
       }
       else  {                                         // ELSE No Indices Exist
-    	  GLES20.glDrawArrays( primitiveType, offset, numVertices );  // Draw Direct (Array)
+    	  glDrawArrays( primitiveType, offset, numVertices );  // Draw Direct (Array)
       }
 
       /*if ( hasTexCoords )                             // IF Vertices Have Texture Coords
