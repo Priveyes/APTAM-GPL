@@ -1,20 +1,11 @@
 //Copyright 2015 ICGJKU
 package at.jku.ptam;
 
-import static android.opengl.GLES20.glGenTextures;
-
-import java.io.IOException;
-import java.math.BigInteger;
-import java.util.Collections;
-import java.util.List;
-import java.util.Vector;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
-
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
 import android.hardware.Camera.Size;
@@ -24,46 +15,50 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.util.Log;
 
+import java.io.IOException;
+import java.math.BigInteger;
+import java.util.Collections;
+import java.util.List;
+import java.util.Vector;
+
+import static android.opengl.GLES20.glGenTextures;
+
 class CameraManager implements Camera.PreviewCallback, SensorEventListener {
+
+	private static int capacity = 200;
+	private final Object cameraLock = new Object();
+	private final Object frameLock = new Object();
+	public List<String> wbmodes;
+	SharedPreferences preferences;
+	long lastts = 0;
+	//more sensor stuff
+	BigInteger stsdiffsum = BigInteger.ZERO;
+	long nummeas = 0;
+	long stsdiff = 0;
+	Vector<Long> diffs = new Vector<Long>(1000);
+	int baddiffcount = 0;
+	boolean resetdiff = false;
+	//inform main application about new frame
+	private FrameListener frameListener;
+	private int curpos = 0;
+
+	//private RateCounter FPS = new RateCounter();
+	private PersistentSensorEvent[] sensorHistory = new PersistentSensorEvent[capacity];
+	private Camera camera;
+	private CameraFrame frame;
+	private SurfaceTexture renderTexture;
+	private Size frameSize;
+	private SensorManager mSensorManager = null;
+	private float[] rotMat = new float[9];
+	private long frametimeoffset = -1;
 
 	public CameraManager(SharedPreferences sp) {
 		preferences = sp;
 	}
 
-	//inform main application about new frame
-	private FrameListener frameListener;
-
-	public interface FrameListener {
-		void onFrameReady();
-	}
-
 	public void setFrameListener(FrameListener frameListener) {
 		this.frameListener = frameListener;
 	}
-
-	SharedPreferences preferences;
-
-	private int curpos = 0;
-	private static int capacity = 200;
-	private PersistentSensorEvent[] sensorHistory = new PersistentSensorEvent[capacity];
-
-	public List<String> wbmodes;
-
-	private final Object cameraLock = new Object();
-	private final Object frameLock = new Object();
-
-	private Camera camera;
-	private CameraFrame frame;
-
-	private SurfaceTexture renderTexture;
-
-	//private RateCounter FPS = new RateCounter();
-
-	private Size frameSize;
-
-	private SensorManager mSensorManager = null;
-	private float[] rotMat = new float[9];
-	private long frametimeoffset = -1;
 
 	public void IncOffset() {
 		frametimeoffset += 10 * 1000000;
@@ -127,14 +122,12 @@ class CameraManager implements Camera.PreviewCallback, SensorEventListener {
 			} else {
 				Log.w("Sensor", "Game rotation not available, using old rotation vector!");
 				//sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR), SensorManager.SENSOR_DELAY_FASTEST);
-				if(!mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR), SensorManager.SENSOR_DELAY_GAME))
-				{
+				if (!mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR), SensorManager.SENSOR_DELAY_GAME)) {
 					//from https://android.googlesource.com/platform/frameworks/native/+/fcaf6b91c359ff131cabdf275295d11271e84ce7/services/sensorservice/RotationVectorSensor.cpp
 					//I've to use SENSOR_TYPE_GEOMAGNETIC_ROTATION_VECTOR ?! Because Sony XA1 have no gyroscope
 					Log.w("Sensor", "No Gyro sensor detected, try using geomagnetic rotation vector!");
 					s = mSensorManager.getDefaultSensor(Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR);
 					mSensorManager.registerListener(this, s, SensorManager.SENSOR_DELAY_GAME);
-
 				}
 			}
 
@@ -374,8 +367,6 @@ class CameraManager implements Camera.PreviewCallback, SensorEventListener {
 		}
 	}
 
-	long lastts = 0;
-
 	private PersistentSensorEvent getClosestEvent(long ts) {
 
 		int spos = curpos;
@@ -388,7 +379,7 @@ class CameraManager implements Camera.PreviewCallback, SensorEventListener {
 			se.values = new float[3];
 			return se;
 		}
-		
+
 //		/*if(spos > cpos)
 //			Log.i/*Log.d*/("diff pos", ""+(spos-cpos));
 //		else
@@ -399,17 +390,6 @@ class CameraManager implements Camera.PreviewCallback, SensorEventListener {
 		else
 			return sensorHistory[(cpos + 1) % capacity];
 	}
-
-	//more sensor stuff
-	BigInteger stsdiffsum = BigInteger.ZERO;
-	long nummeas = 0;
-	long stsdiff = 0;
-
-	Vector<Long> diffs = new Vector<Long>(1000);
-
-	int baddiffcount = 0;
-
-	boolean resetdiff = false;
 
 	@Override
 	public void onSensorChanged(SensorEvent event) {
@@ -455,5 +435,9 @@ class CameraManager implements Camera.PreviewCallback, SensorEventListener {
 	public void onAccuracyChanged(Sensor sensor, int accuracy) {
 		// TODO Auto-generated method stub
 
+	}
+
+	public interface FrameListener {
+		void onFrameReady();
 	}
 }

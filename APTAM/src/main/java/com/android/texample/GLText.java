@@ -14,19 +14,12 @@ package com.android.texample;
 
 //import javax.microedition.khronos.opengles.GL10;
 
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.IntBuffer;
-
-//import android.opengl.GLES20;
-
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.opengl.GLUtils;
-import android.util.Log;
 
 import static android.opengl.GLES20.GL_BLEND;
 import static android.opengl.GLES20.GL_CLAMP_TO_EDGE;
@@ -46,6 +39,8 @@ import static android.opengl.GLES20.glEnable;
 import static android.opengl.GLES20.glGenTextures;
 import static android.opengl.GLES20.glTexParameterf;
 
+//import android.opengl.GLES20;
+
 public class GLText {
 
 	//--Constants--//
@@ -60,25 +55,20 @@ public class GLText {
 	public final static int FONT_SIZE_MAX = 180;       // Maximum Font Size (Pixels)
 
 	public final static int CHAR_BATCH_SIZE = 100;     // Number of Characters to Render Per Batch
-
+	final float[] charWidths;                          // Width of Each Character (Actual; Pixels)
 	//--Members--//
 	//GL10 gl;                                           // GL10 Instance
 	AssetManager assets;                               // Asset Manager
 	SpriteBatch batch;                                 // Batch Renderer
-
 	int fontPadX, fontPadY;                            // Font Padding (Pixels; On Each Side, ie. Doubled on Both X+Y Axis)
-
 	float fontHeight;                                  // Font Height (Actual; Pixels)
 	float fontAscent;                                  // Font Ascent (Above Baseline; Pixels)
 	float fontDescent;                                 // Font Descent (Below Baseline; Pixels)
-
 	int textureId;                                     // Font Texture ID [NOTE: Public for Testing Purposes Only!]
 	int textureSize;                                   // Texture Size for Font (Square) [NOTE: Public for Testing Purposes Only!]
 	TextureRegion textureRgn;                          // Full Texture Region
-
 	float charWidthMax;                                // Character Width (Maximum; Pixels)
 	float charHeight;                                  // Character Height (Maximum; Pixels)
-	final float[] charWidths;                          // Width of Each Character (Actual; Pixels)
 	TextureRegion[] charRgn;                           // Region of Each Character (Texture Coordinates)
 	int cellWidth, cellHeight;                         // Character Cell Width/Height
 	int rowCnt, colCnt;                                // Number of Rows/Columns
@@ -222,15 +212,21 @@ public class GLText {
 
 		// generate a new texture
 		int[] textureIds = new int[1];                  // Array to Get Texture Id
-		/*GLES20.*/glGenTextures(1, textureIds, 0);           // Generate New Texture
+		/*GLES20.*/
+		glGenTextures(1, textureIds, 0);           // Generate New Texture
 		textureId = textureIds[0];                      // Save Texture Id
 
 		// setup filters for texture
-		/*GLES20.*/glBindTexture(/*GLES20.*/GL_TEXTURE_2D, textureId);  // Bind Texture
-		/*GLES20.*/glTexParameterf(/*GLES20.*/GL_TEXTURE_2D, /*GLES20.*/GL_TEXTURE_MIN_FILTER, /*GLES20.*/GL_NEAREST);  // Set Minification Filter
-		/*GLES20.*/glTexParameterf(/*GLES20.*/GL_TEXTURE_2D, /*GLES20.*/GL_TEXTURE_MAG_FILTER, /*GLES20.*/GL_LINEAR);  // Set Magnification Filter
-		/*GLES20.*/glTexParameterf(/*GLES20.*/GL_TEXTURE_2D, /*GLES20.*/GL_TEXTURE_WRAP_S, /*GLES20.*/GL_CLAMP_TO_EDGE);  // Set U Wrapping
-		/*GLES20.*/glTexParameterf(/*GLES20.*/GL_TEXTURE_2D, /*GLES20.*/GL_TEXTURE_WRAP_T, /*GLES20.*/GL_CLAMP_TO_EDGE);  // Set V Wrapping
+		/*GLES20.*/
+		glBindTexture(/*GLES20.*/GL_TEXTURE_2D, textureId);  // Bind Texture
+		/*GLES20.*/
+		glTexParameterf(/*GLES20.*/GL_TEXTURE_2D, /*GLES20.*/GL_TEXTURE_MIN_FILTER, /*GLES20.*/GL_NEAREST);  // Set Minification Filter
+		/*GLES20.*/
+		glTexParameterf(/*GLES20.*/GL_TEXTURE_2D, /*GLES20.*/GL_TEXTURE_MAG_FILTER, /*GLES20.*/GL_LINEAR);  // Set Magnification Filter
+		/*GLES20.*/
+		glTexParameterf(/*GLES20.*/GL_TEXTURE_2D, /*GLES20.*/GL_TEXTURE_WRAP_S, /*GLES20.*/GL_CLAMP_TO_EDGE);  // Set U Wrapping
+		/*GLES20.*/
+		glTexParameterf(/*GLES20.*/GL_TEXTURE_2D, /*GLES20.*/GL_TEXTURE_WRAP_T, /*GLES20.*/GL_CLAMP_TO_EDGE);  // Set V Wrapping
 
 		// load the generated bitmap onto the texture
 		GLUtils.texImage2D(/*GLES20.*/GL_TEXTURE_2D, 0, bitmap, 0);  // Load Bitmap to Texture
@@ -360,20 +356,20 @@ public class GLText {
 		return scaleY;                                  // Return Y Scale
 	}
 
-	//--Set Space--//
-	// D: set the spacing (unscaled; ie. pixel size) to use for the font
-	// A: space - space for x axis spacing
-	// R: [none]
-	public void setSpace(float space) {
-		spaceX = space;                                 // Set Space
-	}
-
 	//--Get Space--//
 	// D: get the current spacing used for the font
 	// A: [none]
 	// R: the x/y space currently used for scale
 	public float getSpace() {
 		return spaceX;                                  // Return X Space
+	}
+
+	//--Set Space--//
+	// D: set the spacing (unscaled; ie. pixel size) to use for the font
+	// A: space - space for x axis spacing
+	// R: [none]
+	public void setSpace(float space) {
+		spaceX = space;                                 // Set Space
 	}
 
 	//--Get Length of a String--//
@@ -438,12 +434,15 @@ public class GLText {
 
 	public void EnableGLSettings() {
 		//GLES20.glEnable( GLES20.GL_TEXTURE_2D );              // Enable Texture Mapping
-		/*GLES20.*/glEnable(/*GLES20.*/GL_BLEND);                   // Enable Alpha Blend
-		/*GLES20.*/glBlendFunc(/*GLES20.*/GL_SRC_ALPHA, /*GLES20.*/GL_ONE_MINUS_SRC_ALPHA);  // Set Alpha Blend Function
+		/*GLES20.*/
+		glEnable(/*GLES20.*/GL_BLEND);                   // Enable Alpha Blend
+		/*GLES20.*/
+		glBlendFunc(/*GLES20.*/GL_SRC_ALPHA, /*GLES20.*/GL_ONE_MINUS_SRC_ALPHA);  // Set Alpha Blend Function
 	}
 
 	public void DisableGLSettings() {
 		//GLES20.glDisable( GLES20.GL_TEXTURE_2D );              // Enable Texture Mapping
-		/*GLES20.*/glDisable(/*GLES20.*/GL_BLEND);                   // Enable Alpha Blend
+		/*GLES20.*/
+		glDisable(/*GLES20.*/GL_BLEND);                   // Enable Alpha Blend
 	}
 }

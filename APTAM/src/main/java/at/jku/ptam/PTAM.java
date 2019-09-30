@@ -8,7 +8,6 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
-import android.opengl.GLES10;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -34,9 +33,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-//import javax.microedition.khronos.egl.EGLConfig;
-//import javax.microedition.khronos.opengles.GL10;
-
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
@@ -47,25 +43,26 @@ import static android.opengl.GLES20.GL_DEPTH_BUFFER_BIT;
 import static android.opengl.GLES20.glClear;
 import static android.opengl.GLES20.glClearColor;
 
+//import javax.microedition.khronos.egl.EGLConfig;
+//import javax.microedition.khronos.opengles.GL10;
+
 //import javax.microedition.khronos.opengles.GL11;
 
 public class PTAM extends Activity implements GLSurfaceView.Renderer, OnTouchListener, FrameListener {
-	private CameraManager cameraManager;
 	private static VideoSource vs;
-
-	private GLSurfaceView glSurfaceView;
 	private static GLText glText;
 	private static String fdir;
-	private boolean pauserender = false;
-
-	private boolean requestExit = false;
-
-	SharedPreferences preferences;
 
 	static {
 //        System.loadLibrary("gnustl_shared");
 		System.loadLibrary("PTAM");
 	}
+
+	SharedPreferences preferences;
+	private CameraManager cameraManager;
+	private GLSurfaceView glSurfaceView;
+	private boolean pauserender = false;
+	private boolean requestExit = false;
 
 	public static VideoSource getVideoSource() {
 		return vs;
@@ -82,6 +79,19 @@ public class PTAM extends Activity implements GLSurfaceView.Renderer, OnTouchLis
 	    inflater.inflate(R.menu.mainmenu, menu);
 	    return super.onCreateOptionsMenu(menu);
 	}*/
+
+	public static void drawText(String text, int x, int y, int shaderid) {
+		//This is a quick and dirty hack to get text rendering support to Opengl ES 2.0, shader is defined in cpp part, ...
+		if (glText != null) {
+			glText.EnableGLSettings();
+
+			glText.begin(shaderid);
+			glText.draw(text, x, y);
+			glText.end();
+
+			glText.DisableGLSettings();
+		}
+	}
 
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
@@ -290,9 +300,9 @@ public class PTAM extends Activity implements GLSurfaceView.Renderer, OnTouchLis
 		//gl.glViewport(0, 0, width, height);
 
 		// Setup orthographic projection
-	      /*gl.glMatrixMode( GL10.GL_PROJECTION );  
-	      gl.glLoadIdentity();                      
-	      gl.glOrthof(                              
+	      /*gl.glMatrixMode( GL10.GL_PROJECTION );
+	      gl.glLoadIdentity();
+	      gl.glOrthof(
 	         0, width,
 	         0, height,
 	         -1.0f, 1.0f
@@ -319,8 +329,10 @@ public class PTAM extends Activity implements GLSurfaceView.Renderer, OnTouchLis
 			if (count == 100)
 				Log.e("Timeout", "Timeout while waiting for next camera image!");
 			if (cameraManager.isCameraImageReady()) {
-				/*GLES20.*/glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-				/*GLES20.*/glClear(/*GLES10.*/GL_COLOR_BUFFER_BIT | /*GLES10.*/GL_DEPTH_BUFFER_BIT);
+				/*GLES20.*/
+				glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+				/*GLES20.*/
+				glClear(/*GLES10.*/GL_COLOR_BUFFER_BIT | /*GLES10.*/GL_DEPTH_BUFFER_BIT);
 				//gl.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 				//gl.glClear(GLES10.GL_COLOR_BUFFER_BIT|GLES10.GL_DEPTH_BUFFER_BIT);
 				if (requestExit) {
@@ -337,23 +349,10 @@ public class PTAM extends Activity implements GLSurfaceView.Renderer, OnTouchLis
 				} else
 					nativeRender();
 			}
-		      /*gl.glMatrixMode( GL10.GL_MODELVIEW );      
+		      /*gl.glMatrixMode( GL10.GL_MODELVIEW );
 		      gl.glLoadIdentity();*/
 			//gl.glColor4f(1, 0, 0, 1);
 			//drawText("test",100,10);
-		}
-	}
-
-	public static void drawText(String text, int x, int y, int shaderid) {
-		//This is a quick and dirty hack to get text rendering support to Opengl ES 2.0, shader is defined in cpp part, ...
-		if (glText != null) {
-			glText.EnableGLSettings();
-
-			glText.begin(shaderid);
-			glText.draw(text, x, y);
-			glText.end();
-
-			glText.DisableGLSettings();
 		}
 	}
 
