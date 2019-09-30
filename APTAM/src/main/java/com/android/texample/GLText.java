@@ -18,7 +18,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
 
-import android.opengl.GLES20;
+//import android.opengl.GLES20;
 
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
@@ -28,7 +28,21 @@ import android.graphics.Typeface;
 import android.opengl.GLUtils;
 import android.util.Log;
 
+import static android.opengl.GLES20.GL_BLEND;
+import static android.opengl.GLES20.GL_CLAMP_TO_EDGE;
+import static android.opengl.GLES20.GL_LINEAR;
+import static android.opengl.GLES20.GL_NEAREST;
+import static android.opengl.GLES20.GL_ONE_MINUS_SRC_ALPHA;
+import static android.opengl.GLES20.GL_SRC_ALPHA;
+import static android.opengl.GLES20.GL_TEXTURE_2D;
+import static android.opengl.GLES20.GL_TEXTURE_MAG_FILTER;
+import static android.opengl.GLES20.GL_TEXTURE_MIN_FILTER;
+import static android.opengl.GLES20.GL_TEXTURE_WRAP_S;
+import static android.opengl.GLES20.GL_TEXTURE_WRAP_T;
 import static android.opengl.GLES20.glBindTexture;
+import static android.opengl.GLES20.glBlendFunc;
+import static android.opengl.GLES20.glDisable;
+import static android.opengl.GLES20.glEnable;
 import static android.opengl.GLES20.glGenTextures;
 import static android.opengl.GLES20.glTexParameterf;
 
@@ -212,15 +226,15 @@ public class GLText {
 		textureId = textureIds[0];                      // Save Texture Id
 
 		// setup filters for texture
-		/*GLES20.*/glBindTexture(GLES20.GL_TEXTURE_2D, textureId);  // Bind Texture
-		/*GLES20.*/glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MIN_FILTER, GLES20.GL_NEAREST);  // Set Minification Filter
-		/*GLES20.*/glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MAG_FILTER, GLES20.GL_LINEAR);  // Set Magnification Filter
-		/*GLES20.*/glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_S, GLES20.GL_CLAMP_TO_EDGE);  // Set U Wrapping
-		/*GLES20.*/glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_T, GLES20.GL_CLAMP_TO_EDGE);  // Set V Wrapping
+		/*GLES20.*/glBindTexture(/*GLES20.*/GL_TEXTURE_2D, textureId);  // Bind Texture
+		/*GLES20.*/glTexParameterf(/*GLES20.*/GL_TEXTURE_2D, /*GLES20.*/GL_TEXTURE_MIN_FILTER, /*GLES20.*/GL_NEAREST);  // Set Minification Filter
+		/*GLES20.*/glTexParameterf(/*GLES20.*/GL_TEXTURE_2D, /*GLES20.*/GL_TEXTURE_MAG_FILTER, /*GLES20.*/GL_LINEAR);  // Set Magnification Filter
+		/*GLES20.*/glTexParameterf(/*GLES20.*/GL_TEXTURE_2D, /*GLES20.*/GL_TEXTURE_WRAP_S, /*GLES20.*/GL_CLAMP_TO_EDGE);  // Set U Wrapping
+		/*GLES20.*/glTexParameterf(/*GLES20.*/GL_TEXTURE_2D, /*GLES20.*/GL_TEXTURE_WRAP_T, /*GLES20.*/GL_CLAMP_TO_EDGE);  // Set V Wrapping
 
 		// load the generated bitmap onto the texture
-		GLUtils.texImage2D(GLES20.GL_TEXTURE_2D, 0, bitmap, 0);  // Load Bitmap to Texture
-		glBindTexture(GLES20.GL_TEXTURE_2D, 0);      // Unbind Texture
+		GLUtils.texImage2D(/*GLES20.*/GL_TEXTURE_2D, 0, bitmap, 0);  // Load Bitmap to Texture
+		glBindTexture(/*GLES20.*/GL_TEXTURE_2D, 0);      // Unbind Texture
 
 		// release the bitmap
 		bitmap.recycle();                               // Release the Bitmap
@@ -261,7 +275,7 @@ public class GLText {
 		//GLES20.glUniform4f(GLES20.glGetUniformLocation(textshader, "GlobalColor"), red, green, blue, alpha);
 		//GLES20.glColor4f( red, green, blue, alpha );        // Set Color+Alpha
 		textshader = shaderid;
-		glBindTexture(GLES20.GL_TEXTURE_2D, textureId);  // Bind the Texture
+		glBindTexture(/*GLES20.*/GL_TEXTURE_2D, textureId);  // Bind the Texture
 		batch.beginBatch();                             // Begin Batch
 	}
 
@@ -424,12 +438,12 @@ public class GLText {
 
 	public void EnableGLSettings() {
 		//GLES20.glEnable( GLES20.GL_TEXTURE_2D );              // Enable Texture Mapping
-		GLES20.glEnable(GLES20.GL_BLEND);                   // Enable Alpha Blend
-		GLES20.glBlendFunc(GLES20.GL_SRC_ALPHA, GLES20.GL_ONE_MINUS_SRC_ALPHA);  // Set Alpha Blend Function
+		/*GLES20.*/glEnable(/*GLES20.*/GL_BLEND);                   // Enable Alpha Blend
+		/*GLES20.*/glBlendFunc(/*GLES20.*/GL_SRC_ALPHA, /*GLES20.*/GL_ONE_MINUS_SRC_ALPHA);  // Set Alpha Blend Function
 	}
 
 	public void DisableGLSettings() {
 		//GLES20.glDisable( GLES20.GL_TEXTURE_2D );              // Enable Texture Mapping
-		GLES20.glDisable(GLES20.GL_BLEND);                   // Enable Alpha Blend
+		/*GLES20.*/glDisable(/*GLES20.*/GL_BLEND);                   // Enable Alpha Blend
 	}
 }

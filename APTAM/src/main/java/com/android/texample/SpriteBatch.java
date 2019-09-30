@@ -6,8 +6,9 @@ package com.android.texample;
 import android.util.FloatMath;
 
 //import javax.microedition.khronos.opengles.GL10;
-import android.opengl.GLES20;
+//import android.opengl.GLES20;
 
+import static android.opengl.GLES20.GL_TEXTURE_2D;
 import static android.opengl.GLES20.GL_TRIANGLES;
 import static android.opengl.GLES20.glBindTexture;
 
@@ -60,7 +61,7 @@ public class SpriteBatch {
    // A: textureId - the ID of the texture to use for the batch
    // R: [none]
    public void beginBatch(int textureId)  {
-	  /*GLES20.*/glBindTexture( GLES20.GL_TEXTURE_2D, textureId );  // Bind the Texture
+	  /*GLES20.*/glBindTexture(/*GLES20.*/GL_TEXTURE_2D, textureId );  // Bind the Texture
       numSprites = 0;                                 // Empty Sprite Counter
       bufferIndex = 0;                                // Reset Buffer Index (Empty)
    }
