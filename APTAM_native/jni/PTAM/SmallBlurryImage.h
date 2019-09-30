@@ -6,10 +6,10 @@
 
 #ifndef __SMALLBLURRYIMAGE_H
 #define __SMALLBLURRYIMAGE_H
-#include <cvd/image.h>
-#include <cvd/byte.h>
-#include <TooN/se2.h>
-#include <TooN/se3.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/byte.h>
+#include <../../ndk-modules/TooN/include/TooN/se2.h>
+#include <../../ndk-modules/TooN/include/TooN/se3.h>
 #include "KeyFrame.h"
 #include "ATANCamera.h"
 

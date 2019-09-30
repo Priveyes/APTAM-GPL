@@ -3,11 +3,11 @@
 
 #include "Bundle.h"
 #include "MEstimator.h"
-#include <TooN/helpers.h>
-#include <TooN/Cholesky.h>
+#include <../../ndk-modules/TooN/include/TooN/helpers.h>
+#include <../../ndk-modules/TooN/include/TooN/Cholesky.h>
 #include <fstream>
 #include <iomanip>
-#include <gvars3/instances.h>
+#include <../../ndk-modules/gvars3/installfiles/gvars3/instances.h>
 
 namespace APTAM {
 

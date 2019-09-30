@@ -14,9 +14,9 @@
 
 #ifndef __MAPMAKER_H
 #define __MAPMAKER_H
-#include <cvd/image.h>
-#include <cvd/byte.h>
-#include <cvd/thread.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/byte.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/thread.h>
 
 #include "Map.h"
 #include "KeyFrame.h"
@@ -115,7 +115,7 @@ struct MapMakerData
   }
 };
 
-// MapMaker dervives from CVD::Thread, so everything in void run() is its own thread.
+// MapMaker derives from CVD::Thread, so everything in void run() is its own thread.
 class MapMaker : protected CVD::Thread
 {
   public:

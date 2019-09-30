@@ -11,10 +11,10 @@
 #ifndef __MINI_PATCH_H
 #define __MINI_PATCH_H
 
-#include <cvd/image.h>
-#include <cvd/byte.h>
-#include <cvd/utility.h>
-#include <TooN/TooN.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/byte.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/utility.h>
+#include <../../ndk-modules/TooN/include/TooN/TooN.h>
 #include <vector>
 
 namespace APTAM {

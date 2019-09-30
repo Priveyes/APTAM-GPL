@@ -10,7 +10,7 @@
 #ifdef __ANDROID__
 #include "OpenGL.h"
 #else
-#include <cvd/gl_helpers.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/gl_helpers.h>
 #endif
 
 namespace APTAM {

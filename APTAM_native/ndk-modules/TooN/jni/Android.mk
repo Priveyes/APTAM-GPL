@@ -20,6 +20,14 @@ LOCAL_CPP_EXTENSION := .cc
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../include
 LOCAL_MODULE    := TooN
 
+#ifeq ($(TARGET_ARCH_ABI),armeabi-v7a)
+ifneq (,$(filter $(TARGET_ARCH_ABI),armeabi-v7a x86 arm64-v8a x86_64))
+    LOCAL_CFLAGS += -DHAVE_NEON=1
+    LOCAL_CFLAGS += -DLOCAL_ARM_NEON=1
+    LOCAL_ARM_NEON  := true
+endif
+
+#LOCAL_LDLIBS is always ignored for static libraries BUT NEEDED FOR EXPORT !
 LOCAL_LDLIBS +=  -llog -ldl
 LOCAL_LDLIBS    += -landroid
 LOCAL_EXPORT_C_INCLUDES += $(LOCAL_C_INCLUDES) #export includes

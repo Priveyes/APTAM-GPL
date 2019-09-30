@@ -14,9 +14,9 @@
 #include "VideoSource.h"
 #include "GLWindow2.h"
 
-#include <cvd/image.h>
-#include <cvd/rgb.h>
-#include <cvd/byte.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/rgb.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/byte.h>
 
 #include "threadpool.h"
 

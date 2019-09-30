@@ -1,10 +1,10 @@
 #include <string.h>
-//#include <sstream>
+#include <sstream>
 #include <iostream>     // std::streambuf, std::cout
 #include <fstream>      // std::ofstream
 #include <stdlib.h>
 #include <android/log.h>
-#include <gvars3/instances.h>
+#include <../../ndk-modules/gvars3/installfiles/gvars3/instances.h>
 #include <jni.h>
 #include "OpenGL.h"
 #include "CameraCalibrator.h"
@@ -13,6 +13,7 @@
 
 //#define ENABLE_TIMING
 #include "Timing.h"
+
 
 using namespace std;
 using namespace GVars3;

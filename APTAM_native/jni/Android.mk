@@ -43,7 +43,9 @@ LOCAL_STATIC_LIBRARIES += gvars3
 LOCAL_STATIC_LIBRARIES += agast
 LOCAL_STATIC_LIBRARIES += glm
 LOCAL_STATIC_LIBRARIES += tinyxml2
-LOCAL_LDLIBS    += -landroid -lGLESv2
+
+LOCAL_LDLIBS  += -landroid -lGLESv2 -llog
+
 LOCAL_CFLAGS += -D GL_GLEXT_PROTOTYPES -g
 
 #LOCAL_CFLAGS += -fopenmp
@@ -58,41 +60,42 @@ LOCAL_EXPORT_CXXFLAGS := $(LOCAL_CXXFLAGS) #export cpp flgs
 include $(BUILD_SHARED_LIBRARY)
  
 #define prebuilt lapack because this takes forever to build or even check if it should be rebuilt!!!
-ifeq (true,true) 
+ifndef prebuilt #ifeq (true, true)
     include $(CLEAR_VARS)
     LOCAL_MODULE := lapack
     LOCAL_SRC_FILES := ../prebuild-libs/$(TARGET_ARCH_ABI)/liblapack.a
     LOCAL_EXPORT_C_INCLUDES := ../ndk-modules/lapack/jni/clapack/INCLUDE
-    LOCAL_STATIC_LIBRARIES := tmglib clapack blas f2c
-    include $(PREBUILT_STATIC_LIBRARY)
-    
+    LOCAL_STATIC_LIBRARIES := clapack blas f2c
+       include $(PREBUILT_STATIC_LIBRARY)
+
     include $(CLEAR_VARS)
     LOCAL_MODULE := clapack
     LOCAL_SRC_FILES := ../prebuild-libs/$(TARGET_ARCH_ABI)/libclapack.a
-    include $(PREBUILT_STATIC_LIBRARY)
-    
+       include $(PREBUILT_STATIC_LIBRARY)
+
     include $(CLEAR_VARS)
     LOCAL_MODULE := blas
     LOCAL_SRC_FILES := ../prebuild-libs/$(TARGET_ARCH_ABI)/libblas.a
-    include $(PREBUILT_STATIC_LIBRARY)
-    
+       include $(PREBUILT_STATIC_LIBRARY)
+
     include $(CLEAR_VARS)
     LOCAL_MODULE := f2c
     LOCAL_SRC_FILES := ../prebuild-libs/$(TARGET_ARCH_ABI)/libf2c.a
-    include $(PREBUILT_STATIC_LIBRARY)
+       include $(PREBUILT_STATIC_LIBRARY)
+
     #tmglib clapack blas f2c
 else
 #if prebuild libs don't work compile them with the following commands and copy then manually to prebuild-libs folder
 $(call import-add-path,$(LOCAL_PATH)/../ndk-modules)
-$(call import-module,lapack)
+$(call import-module, lapack)
 endif
 
 $(call import-add-path,$(LOCAL_PATH)/../ndk-modules)
-$(call import-module,cvd)
-$(call import-module,gvars3)
-$(call import-module,TooN)
-$(call import-module,agast)
-$(call import-module,glm)
-$(call import-module,tinyxml2)
+$(call import-module, cvd)
+$(call import-module, gvars3)
+$(call import-module, TooN)
+$(call import-module, agast)
+$(call import-module, glm)
+$(call import-module, tinyxml2)
 
 $(call import-module,android/cpufeatures)

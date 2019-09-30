@@ -45,10 +45,10 @@
 #ifndef __ATAN_CAMERA_H
 #define __ATAN_CAMERA_H
 
-#include <TooN/TooN.h>
+#include <../../ndk-modules/TooN/include/TooN/TooN.h>
 #include <cmath>
-#include <cvd/vector_image_ref.h>
-#include <gvars3/gvars3.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/vector_image_ref.h>
+#include <../../ndk-modules/gvars3/installfiles/gvars3/gvars3.h>
 
 #include "MapSerialization.h"
 

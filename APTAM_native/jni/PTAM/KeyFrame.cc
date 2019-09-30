@@ -4,8 +4,8 @@
 #include "KeyFrame.h"
 #include "ShiTomasi.h"
 #include "SmallBlurryImage.h"
-#include <cvd/vision.h>
-#include <cvd/fast_corner.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/vision.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/fast_corner.h>
 #ifdef __ANDROID__
 #include <agast_corner_detect.h>
 #else
@@ -16,7 +16,7 @@
 //#define ENABLE_TIMING
 #include "Timing.h"
 
-#include <gvars3/instances.h>
+#include <../../ndk-modules/gvars3/installfiles/gvars3/instances.h>
 
 namespace APTAM {
 

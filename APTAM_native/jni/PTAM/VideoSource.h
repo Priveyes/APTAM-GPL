@@ -15,10 +15,10 @@
 //
 #ifndef __VideoSource_H
 #define __VideoSource_H
-#include <cvd/image.h>
-#include <cvd/byte.h>
-#include <cvd/rgb.h>
-#include <cvd/rgba.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/byte.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/rgb.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/rgba.h>
 
 namespace APTAM {
 

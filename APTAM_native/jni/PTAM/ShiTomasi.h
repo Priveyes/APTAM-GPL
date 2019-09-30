@@ -2,8 +2,8 @@
 #ifndef __SHI_TOMASI__H
 #define __SHI_TOMASI__H
 
-#include <cvd/image.h>
-#include <cvd/byte.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/byte.h>
 
 namespace APTAM {
 

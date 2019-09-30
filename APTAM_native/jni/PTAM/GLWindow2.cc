@@ -5,9 +5,9 @@
 #include "GLWindow2.h"
 #include "GLWindowMenu.h"
 #include <stdlib.h>
-#include <gvars3/GStringUtil.h>
-#include <gvars3/instances.h>
-#include <TooN/helpers.h>
+#include <../../ndk-modules/gvars3/installfiles/gvars3/GStringUtil.h>
+#include <../../ndk-modules/gvars3/installfiles/gvars3/instances.h>
+#include <../../ndk-modules/TooN/include/TooN/helpers.h>
 
 namespace APTAM {
 

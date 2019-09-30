@@ -35,6 +35,15 @@
 #include <cvd/config.h>
 // #include <OpenGLES/ES1/gl.h>
 #include <cvd/internal/gles1_types.h>
+#include "image_ref.h"
+#include "../../../../jni/PTAM/opengles2helper.h"
+#include "../../../TooN/include/TooN/so2.h"
+#include "../../../TooN/include/TooN/internal/vector.hh"
+#include "byte.h"
+#include "rgb.h"
+#include "rgb8.h"
+#include "../../../../../../../AppData/Local/Android/sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/string"
+#include "../../../../../../../AppData/Local/Android/sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/utility"
 
 #ifdef CVD_HAVE_TOON
 #include <TooN/TooN.h>

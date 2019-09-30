@@ -3,13 +3,13 @@
 
 #include "CalibCornerPatch.h"
 #include "OpenGL.h"
-#include <TooN/helpers.h>
-#include <cvd/vector_image_ref.h>
-#include <cvd/vision.h>
-#include <cvd/utility.h>
-#include <cvd/convolution.h>
-#include <cvd/image_interpolate.h>
-#include <TooN/Cholesky.h>
+#include <../../ndk-modules/TooN/include/TooN/helpers.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/vector_image_ref.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/vision.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/utility.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/convolution.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image_interpolate.h>
+#include <../../ndk-modules/TooN/include/TooN/Cholesky.h>
 #include "SmallMatrixOpts.h"
 
 namespace APTAM {

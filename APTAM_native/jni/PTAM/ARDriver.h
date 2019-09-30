@@ -12,15 +12,16 @@
 //
 #ifndef __AR_Driver_H
 #define __AR_Driver_H
-#include <TooN/se3.h>
+#include <../../ndk-modules/TooN/include/TooN/se3.h>
 #include "ATANCamera.h"
 #include "GLWindow2.h"
 #include "Map.h"
 #include "OpenGL.h"
-#include <cvd/image.h>
-#include <cvd/rgb.h>
-#include <cvd/byte.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/rgb.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/byte.h>
 #include "ARTester.h"
+#include "../../ndk-modules/cvd/installfiles/cvd/abs.h"
 
 namespace APTAM {
 

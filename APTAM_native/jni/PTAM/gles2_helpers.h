@@ -27,24 +27,25 @@
 #include <map>
 #include <utility>
 
-#include <cvd/image_ref.h>
-#include <cvd/image.h>
-#include <cvd/byte.h>
-#include <cvd/rgb.h>
-#include <cvd/byte.h>
-#include <cvd/rgb8.h>
-#include <cvd/rgba.h>
-#include <cvd/config.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image_ref.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/byte.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/rgb.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/byte.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/rgb8.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/rgba.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/config.h>
 // #include <OpenGLES/ES1/gl.h>
 #include "opengles2helper.h"
-#include <cvd/internal/gles1_types.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image_ref.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/internal/gles1_types.h>
 
 #ifdef CVD_HAVE_TOON
-#include <TooN/TooN.h>
-#include <TooN/se3.h>
-#include <TooN/so3.h>
-#include <TooN/se2.h>
-#include <TooN/so2.h>
+#include <../../ndk-modules/TooN/include/TooN/TooN.h>
+#include <../../ndk-modules/TooN/include/TooN/se3.h>
+#include <../../ndk-modules/TooN/include/TooN/so3.h>
+#include <../../ndk-modules/TooN/include/TooN/se2.h>
+#include <../../ndk-modules/TooN/include/TooN/so2.h>
 #endif
 
 namespace CVD

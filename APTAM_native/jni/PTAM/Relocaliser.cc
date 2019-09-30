@@ -3,8 +3,8 @@
 
 #include "Relocaliser.h"
 #include "SmallBlurryImage.h"
-#include <cvd/utility.h>
-#include <gvars3/instances.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/utility.h>
+#include <../../ndk-modules/gvars3/installfiles/gvars3/instances.h>
 
 #ifdef __ANDROID__
 #include <android/log.h>

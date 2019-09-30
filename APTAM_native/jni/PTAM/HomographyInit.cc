@@ -3,10 +3,10 @@
 #include "HomographyInit.h"
 #include "SmallMatrixOpts.h"
 #include <utility>
-#include <TooN/se3.h>
-#include <TooN/SVD.h>
-#include <TooN/SymEigen.h>
-#include <TooN/wls.h>
+#include <../../ndk-modules/TooN/include/TooN/se3.h>
+#include <../../ndk-modules/TooN/include/TooN/SVD.h>
+#include <../../ndk-modules/TooN/include/TooN/SymEigen.h>
+#include <../../ndk-modules/TooN/include/TooN/wls.h>
 #include "MEstimator.h"
 
 namespace APTAM {

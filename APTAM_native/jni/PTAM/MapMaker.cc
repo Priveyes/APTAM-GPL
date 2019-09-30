@@ -8,14 +8,14 @@
 #include "SmallMatrixOpts.h"
 #include "HomographyInit.h"
 
-#include <cvd/vector_image_ref.h>
-#include <cvd/vision.h>
-#include <cvd/image_interpolate.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/vector_image_ref.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/vision.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image_interpolate.h>
 
-#include <TooN/SVD.h>
-#include <TooN/SymEigen.h>
+#include <../../ndk-modules/TooN/include/TooN/SVD.h>
+#include <../../ndk-modules/TooN/include/TooN/SymEigen.h>
 
-#include <gvars3/instances.h>
+#include <../../ndk-modules/gvars3/installfiles/gvars3/instances.h>
 #include <fstream>
 #include <algorithm>
 #include <unordered_map>

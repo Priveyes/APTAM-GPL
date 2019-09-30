@@ -9,14 +9,14 @@
 #include "PatchFinder.h"
 #include "TrackerData.h"
 
-#include <cvd/utility.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/utility.h>
 //#include <cvd/gl_helpers.h>
-#include <cvd/fast_corner.h>
-#include <cvd/vision.h>
-#include <cvd/image_io.h>
-#include <TooN/wls.h>
-#include <gvars3/instances.h>
-#include <gvars3/GStringUtil.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/fast_corner.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/vision.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image_io.h>
+#include <../../ndk-modules/TooN/include/TooN/wls.h>
+#include <../../ndk-modules/gvars3/installfiles/gvars3/instances.h>
+#include <../../ndk-modules/gvars3/installfiles/gvars3/GStringUtil.h>
 
 #include "GLWindow2.h"
 
@@ -27,6 +27,7 @@
 
 //#define ENABLE_TIMING
 #include "Timing.h"
+#include "../../../../../AppData/Local/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/zconf.h"
 
 //#include <omp.h>
 #include <pthread.h>

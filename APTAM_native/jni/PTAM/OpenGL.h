@@ -14,11 +14,11 @@
 #define GL_GLEXT_PROTOTYPES 1
 #include <GLES/gl.h>
 #include <GLES/glext.h>
-#include <cvd/gles1_helpers.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/gles1_helpers.h>
 #endif
 
 #include <android/log.h>
-#include <cvd/image.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image.h>
 
 inline void CheckGLError(const char* prefix)
 {
@@ -158,7 +158,7 @@ template<class C> inline void glDrawPixels(const CVD::SubImage<C>& im)
 #include <GL/glew.h>
 #endif
 
-#include <cvd/gl_helpers.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/gl_helpers.h>
 #include <iostream>
 #include <fstream>
 

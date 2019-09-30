@@ -16,8 +16,8 @@
 #ifndef __MAP_H
 #define __MAP_H
 #include <vector>
-#include <TooN/se3.h>
-#include <cvd/image.h>
+#include <../../ndk-modules/TooN/include/TooN/se3.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image.h>
 #include <pthread.h>          // mutex
 
 

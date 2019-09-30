@@ -4,10 +4,10 @@
 #include "cvd/config.h"
 
 #ifdef CVD_INTERNAL_NEED_TR1 && !(defined WIN32 && !defined __MINGW32__)
-	#include <tr1/memory>
+	#include <memory>
 	namespace CVD{
 		namespace STD{
-			using std::tr1::shared_ptr;
+			using std::shared_ptr;
 		};
 	};
 #else

@@ -5,9 +5,9 @@
 #ifndef __CALIB_CORNER_PATCH_H
 #define __CALIB_CORNER_PATCH_H
 
-#include <TooN/TooN.h>
-#include <cvd/image.h>
-#include <cvd/byte.h>
+#include <../../ndk-modules/TooN/include/TooN/TooN.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/byte.h>
 
 namespace APTAM {
 using namespace TooN;

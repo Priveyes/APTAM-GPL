@@ -1,8 +1,8 @@
 //Copyright ICGJKU 2015
 //A little bit hacky solution to get OpenGL ES 2.0 support.
 #include "OpenGL.h"
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
+#include <../../ndk-modules/glm/glm/gtc/matrix_transform.hpp>
+#include <../../ndk-modules/glm/glm/gtc/type_ptr.hpp>
 #include <android/log.h>
 #include "DefaultShaders.h"
 #include <stdexcept>

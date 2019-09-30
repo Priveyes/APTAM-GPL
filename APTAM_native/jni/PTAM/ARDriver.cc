@@ -11,6 +11,7 @@
 
 //#define ENABLE_TIMING
 #include "Timing.h"
+#include "../../ndk-modules/gvars3/installfiles/gvars3/gvars3.h"
 
 namespace APTAM {
 

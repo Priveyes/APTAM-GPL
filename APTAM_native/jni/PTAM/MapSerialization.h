@@ -9,11 +9,11 @@
 #define MAPSERIALIZATION_H_
 
 #include <map>
-#include <tinyxml2.h>
-#include <TooN/TooN.h>
-#include <cvd/image_ref.h>
-#include <cvd/image.h>
-#include <cvd/byte.h>
+#include <../../ndk-modules/tinyxml2/tinyxml2-master/tinyxml2.h>
+#include <../../ndk-modules/TooN/include/TooN/TooN.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image_ref.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/byte.h>
 #include <limits>
 
 namespace APTAM{

@@ -4,16 +4,16 @@
 #include "OpenGL.h"
 #include "CalibImage.h"
 #include <stdlib.h>
-#include <gvars3/instances.h>
-#include <cvd/utility.h>
-#include <cvd/convolution.h>
-#include <cvd/fast_corner.h>
-#include <cvd/vector_image_ref.h>
-#include <cvd/image_interpolate.h>
+#include <../../ndk-modules/gvars3/installfiles/gvars3/instances.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/utility.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/convolution.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/fast_corner.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/vector_image_ref.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image_interpolate.h>
 
-#include <TooN/se3.h>
-#include <TooN/SVD.h>
-#include <TooN/wls.h>
+#include <../../ndk-modules/TooN/include/TooN/se3.h>
+#include <../../ndk-modules/TooN/include/TooN/SVD.h>
+#include <../../ndk-modules/TooN/include/TooN/wls.h>
 
 #ifdef __ANDROID__
 #include <android/log.h>

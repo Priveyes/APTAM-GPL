@@ -2,11 +2,11 @@
 // Modified by ICGJKU 2015
 
 #include "ATANCamera.h"
-#include <TooN/helpers.h>
-#include <cvd/vector_image_ref.h>
+#include <../../ndk-modules/TooN/include/TooN/helpers.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/vector_image_ref.h>
 #include <iostream>
 #include <algorithm>
-#include <gvars3/instances.h>
+#include <../../ndk-modules/gvars3/installfiles/gvars3/instances.h>
 
 #ifdef __ANDROID__
 #include <android/log.h>

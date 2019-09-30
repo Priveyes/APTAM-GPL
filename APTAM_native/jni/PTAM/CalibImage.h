@@ -8,7 +8,7 @@
 #include "ATANCamera.h"
 #include "CalibCornerPatch.h"
 #include <vector>
-#include <TooN/se3.h>
+#include <../../ndk-modules/TooN/include/TooN/se3.h>
 
 namespace APTAM {
 

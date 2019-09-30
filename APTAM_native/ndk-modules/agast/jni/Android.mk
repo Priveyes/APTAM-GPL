@@ -3,7 +3,8 @@ include $(CLEAR_VARS)
 
 LOCAL_CFLAGS := 
 
-ifeq ($(TARGET_ARCH_ABI),armeabi-v7a)
+#ifeq ($(TARGET_ARCH_ABI),armeabi-v7a)
+ifneq (,$(filter $(TARGET_ARCH_ABI),armeabi-v7a x86 arm64-v8a x86_64))
     LOCAL_CFLAGS += -DHAVE_NEON=1
     LOCAL_CFLAGS += -DLOCAL_ARM_NEON=1
     LOCAL_ARM_NEON  := true

@@ -2,8 +2,8 @@
 // Modified by ICGJKU 2015
 #include "OpenGL.h"
 #include "GLWindowMenu.h"
-#include <gvars3/instances.h>
-#include <gvars3/GStringUtil.h>
+#include <../../ndk-modules/gvars3/installfiles/gvars3/instances.h>
+#include <../../ndk-modules/gvars3/installfiles/gvars3/GStringUtil.h>
 #include <sstream>
 
 namespace APTAM {

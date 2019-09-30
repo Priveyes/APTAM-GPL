@@ -9,8 +9,8 @@
 
 #ifndef __LEVEL_HELPERS_H
 #define __LEVEL_HELPERS_H
-#include <TooN/TooN.h>
-#include <cvd/image_ref.h>
+#include <../../ndk-modules/TooN/include/TooN/TooN.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image_ref.h>
 
 namespace APTAM {
 

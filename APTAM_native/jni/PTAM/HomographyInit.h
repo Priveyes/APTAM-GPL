@@ -13,8 +13,8 @@
 
 #ifndef __HOMOGRAPHY_INIT_H
 #define __HOMOGRAPHY_INIT_H
-#include <TooN/TooN.h>
-#include <TooN/se3.h>
+#include <../../ndk-modules/TooN/include/TooN/TooN.h>
+#include <../../ndk-modules/TooN/include/TooN/se3.h>
 #include <vector>
 
 namespace APTAM{

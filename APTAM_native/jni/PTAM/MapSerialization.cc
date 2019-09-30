@@ -7,11 +7,11 @@
 
 #include "MapSerialization.h"
 #include <sys/stat.h>
-#include <cvd/image_io.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image_io.h>
 
 #ifdef __ANDROID__
 #include <android/log.h>
-#include <sys/syslimits.h>
+//#include <sys/syslimits.h>
 #include <unistd.h>
 #include <dirent.h>
 #endif

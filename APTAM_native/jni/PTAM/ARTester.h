@@ -6,7 +6,7 @@
 #ifndef __ARTESTER_H
 #define __ARTESTER_H
 
-#include <TooN/TooN.h>
+#include <../../ndk-modules/TooN/include/TooN/TooN.h>
 #include "OpenGL.h"
 #include "Map.h"
 

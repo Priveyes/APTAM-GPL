@@ -11,12 +11,12 @@
 //  and a wrapper for CVD's text display routines.
 
 #ifdef __ANDROID__
-#include <cvd/image.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image.h>
 #include <map>
 #else
-#include <cvd/glwindow.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/glwindow.h>
 #endif
-#include <TooN/TooN.h>
+#include <../../ndk-modules/TooN/include/TooN/TooN.h>
 
 namespace APTAM {
 

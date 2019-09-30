@@ -2,12 +2,12 @@
 // Modified by ICGJKU 2015
 
 #include "OpenGL.h"
-#include <gvars3/instances.h>
+#include <../../ndk-modules/gvars3/installfiles/gvars3/instances.h>
 #include "CameraCalibrator.h"
-#include <TooN/SVD.h>
+#include <../../ndk-modules/TooN/include/TooN/SVD.h>
 #include <fstream>
 #include <stdlib.h>
-#include <cvd/image_io.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image_io.h>
 
 using namespace APTAM;
 using namespace CVD;

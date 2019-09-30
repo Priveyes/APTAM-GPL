@@ -10,10 +10,11 @@
 
 #ifndef __MESTIMATOR_H
 #define __MESTIMATOR_H
-#include <TooN/TooN.h>
+#include <../../ndk-modules/TooN/include/TooN/TooN.h>
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include "../../ndk-modules/TooN/include/TooN/TooN.h"
 
 namespace APTAM {
 

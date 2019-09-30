@@ -1,7 +1,7 @@
 // Copyright 2008 Isis Innovation Limited
 // Modified by ICGJKU 2015
 #include "OpenGL.h"
-#include <gvars3/instances.h>
+#include <../../ndk-modules/gvars3/installfiles/gvars3/instances.h>
 #include <stdlib.h>
 #include "System.h"
 #include "ATANCamera.h"
@@ -9,9 +9,9 @@
 #include "Tracker.h"
 #include "ARDriver.h"
 #include "MapViewer.h"
-#include <cvd/image_io.h>
-#include <cvd/convolution.h>
-#include <cvd/vision.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image_io.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/convolution.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/vision.h>
 
 //#define ENABLE_TIMING
 #include "Timing.h"

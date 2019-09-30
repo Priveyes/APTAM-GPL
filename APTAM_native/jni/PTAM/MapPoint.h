@@ -14,9 +14,9 @@
 
 #ifndef __MAP_POINT_H
 #define __MAP_POINT_H
-#include <TooN/TooN.h>
-#include <cvd/image_ref.h>
-#include <cvd/timer.h>
+#include <../../ndk-modules/TooN/include/TooN/TooN.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image_ref.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/timer.h>
 #include <set>
 #include <stdint.h>
 #include "MapSerialization.h"

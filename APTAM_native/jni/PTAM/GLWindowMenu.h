@@ -9,7 +9,7 @@
 
 #include <vector>
 #include <map>
-#include <gvars3/gvars3.h>
+#include <../../ndk-modules/gvars3/installfiles/gvars3/gvars3.h>
 #include "GLWindow2.h"
 
 namespace APTAM {

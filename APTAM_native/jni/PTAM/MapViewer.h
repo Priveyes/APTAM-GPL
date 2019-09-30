@@ -13,8 +13,8 @@
 #define __MAP_VIEWER_H
 
 #include "Map.h"
-#include <TooN/TooN.h>
-#include <TooN/se3.h>
+#include <../../ndk-modules/TooN/include/TooN/TooN.h>
+#include <../../ndk-modules/TooN/include/TooN/se3.h>
 #include <sstream>
 #include "GLWindow2.h"
 

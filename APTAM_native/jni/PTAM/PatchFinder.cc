@@ -4,10 +4,10 @@
 #include "SmallMatrixOpts.h"
 #include "KeyFrame.h"
 
-#include <cvd/vision.h>
-#include <cvd/vector_image_ref.h>
-#include <cvd/image_interpolate.h>
-#include <TooN/Cholesky.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/vision.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/vector_image_ref.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image_interpolate.h>
+#include <../../ndk-modules/TooN/include/TooN/Cholesky.h>
 // tmmintrin.h contains SSE3<> instrinsics, used for the ZMSSD search at the bottom..
 // If this causes problems, just do #define CVD_HAVE_XMMINTRIN 0
 

@@ -1,11 +1,11 @@
 // Copyright 2008 Isis Innovation Limited
 #include "SmallBlurryImage.h"
-#include <cvd/utility.h>
-#include <cvd/convolution.h>
-#include <cvd/vision.h>
-#include <TooN/se2.h>
-#include <TooN/Cholesky.h>
-#include <TooN/wls.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/utility.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/convolution.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/vision.h>
+#include <../../ndk-modules/TooN/include/TooN/se2.h>
+#include <../../ndk-modules/TooN/include/TooN/Cholesky.h>
+#include <../../ndk-modules/TooN/include/TooN/wls.h>
 
 namespace APTAM {
 

@@ -19,10 +19,10 @@
 #ifndef __KEYFRAME_H
 #define __KEYFRAME_H
 
-#include <TooN/TooN.h>
-#include <TooN/se3.h>
-#include <cvd/image.h>
-#include <cvd/byte.h>
+#include <../../ndk-modules/TooN/include/TooN/TooN.h>
+#include <../../ndk-modules/TooN/include/TooN/se3.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/byte.h>
 #include <vector>
 #include <set>
 #include <map>

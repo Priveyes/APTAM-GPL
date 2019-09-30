@@ -38,10 +38,10 @@
 #ifndef __PATCHFINDER_H
 #define __PATCHFINDER_H
 
-#include <TooN/TooN.h>
-#include <TooN/se3.h>
-#include <cvd/image.h>
-#include <cvd/byte.h>
+#include <../../ndk-modules/TooN/include/TooN/TooN.h>
+#include <../../ndk-modules/TooN/include/TooN/se3.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/image.h>
+#include <../../ndk-modules/cvd/installfiles/cvd/byte.h>
 #include "MapPoint.h"
 #include "LevelHelpers.h"
 

@@ -7,7 +7,7 @@
 #include <GLES2/gl2.h>
 #include <GLES2/gl2ext.h>
 #define GLM_FORCE_RADIANS
-#include <glm/glm.hpp>
+#include <../../ndk-modules/glm/glm/glm.hpp>
 #include <stdlib.h>
 #include <vector>
 

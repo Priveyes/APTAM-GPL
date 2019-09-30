@@ -3,7 +3,6 @@ include $(CLEAR_VARS)
 
 export CLAPACK_TOP:= $(LOCAL_PATH)
 
-
 subdirs := $(addprefix $(LOCAL_PATH)/,$(addsuffix /Android.mk, \
                 F2CLIBS/libf2c \
                 BLAS/SRC  \

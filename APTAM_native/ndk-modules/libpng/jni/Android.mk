@@ -1,12 +1,12 @@
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
-LOCAL_CFLAGS := 
+#LOCAL_CFLAGS :=
 
-ifeq ($(TARGET_ARCH_ABI),armeabi-v7a)
+#ifeq ($(TARGET_ARCH_ABI),armeabi-v7a)
+ifneq (,$(filter $(TARGET_ARCH_ABI),armeabi-v7a x86 arm64-v8a x86_64))
     LOCAL_CFLAGS += -DHAVE_NEON=1
     LOCAL_CFLAGS += -DLOCAL_ARM_NEON=1
-    #LOCAL_CFLAGS += -D__ARM_NEON__=1
     LOCAL_ARM_NEON  := true
 endif
 
@@ -31,6 +31,7 @@ LOCAL_SRC_FILES :=\
 	arm/filter_neon.S \
 	arm/filter_neon_intrinsics.c
 	
+#LOCAL_LDLIBS is always ignored for static libraries BUT NEEDED FOR EXPORT !
 LOCAL_LDLIBS := -lz
 LOCAL_EXPORT_LDLIBS := $(LOCAL_LDLIBS) #export linker cmds
 

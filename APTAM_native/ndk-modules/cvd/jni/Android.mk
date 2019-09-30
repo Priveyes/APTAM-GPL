@@ -20,7 +20,8 @@ LOCAL_CPP_EXTENSION := .cc .cpp .cxx
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../installfiles
 LOCAL_MODULE    := cvd
 
-ifeq ($(TARGET_ARCH_ABI),armeabi-v7a)
+#ifeq ($(TARGET_ARCH_ABI),armeabi-v7a)
+ifneq (,$(filter $(TARGET_ARCH_ABI), armeabi-v7a x86 arm64-v8a x86_64))
     LOCAL_CFLAGS += -DHAVE_NEON=1
     LOCAL_CFLAGS += -DLOCAL_ARM_NEON=1
     LOCAL_ARM_NEON  := true
@@ -104,10 +105,10 @@ LOCAL_SRC_FILES += ../installfiles/cvd_src/bayer.cxx                      \
 #../installfiles/cvd_src/glwindow.cc                      \
 ../installfiles/cvd_src/gltext.cc                      \
 
-
 LOCAL_STATIC_LIBRARIES += TooN
 LOCAL_STATIC_LIBRARIES += cpufeatures
 LOCAL_STATIC_LIBRARIES += png
+#LOCAL_LDLIBS is always ignored for static libraries BUT NEEDED FOR EXPORT !
 LOCAL_LDLIBS    += -landroid -llog
 
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_C_INCLUDES) #export includes
