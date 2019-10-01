@@ -43,18 +43,12 @@ import static android.opengl.GLES20.GL_DEPTH_BUFFER_BIT;
 import static android.opengl.GLES20.glClear;
 import static android.opengl.GLES20.glClearColor;
 
-//import javax.microedition.khronos.egl.EGLConfig;
-//import javax.microedition.khronos.opengles.GL10;
-
-//import javax.microedition.khronos.opengles.GL11;
-
 public class PTAM extends Activity implements GLSurfaceView.Renderer, OnTouchListener, FrameListener {
 	private static VideoSource vs;
 	private static GLText glText;
 	private static String fdir;
 
 	static {
-//        System.loadLibrary("gnustl_shared");
 		System.loadLibrary("PTAM");
 	}
 
@@ -205,21 +199,19 @@ public class PTAM extends Activity implements GLSurfaceView.Renderer, OnTouchLis
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_MENU || keyCode == KeyEvent.KEYCODE_FOCUS) {
-			nativeKey(32);//space
-			return true;
-		}
-		if (keyCode == KeyEvent.KEYCODE_CAMERA) {
-			cameraManager.FixCameraSettings();
-		}
-		if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
-			nativeKey(32);
-			return true;
-		}
-		if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
-			cameraManager.FixCameraSettings();
-			//nativeKey(13);//enter
-			return true;
+		switch (keyCode) {
+			case KeyEvent.KEYCODE_MENU:
+			case KeyEvent.KEYCODE_FOCUS:
+			case KeyEvent.KEYCODE_VOLUME_UP:
+				nativeKey(32);//space
+				return true;
+			case KeyEvent.KEYCODE_CAMERA:
+				cameraManager.FixCameraSettings();
+				break;
+			case KeyEvent.KEYCODE_VOLUME_DOWN:
+				cameraManager.FixCameraSettings();
+				//nativeKey(13);//enter
+				return true;
 		}
 		return super.onKeyDown(keyCode, event);
 	}
@@ -329,9 +321,7 @@ public class PTAM extends Activity implements GLSurfaceView.Renderer, OnTouchLis
 			if (count == 100)
 				Log.e("Timeout", "Timeout while waiting for next camera image!");
 			if (cameraManager.isCameraImageReady()) {
-				/*GLES20.*/
 				glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-				/*GLES20.*/
 				glClear(/*GLES10.*/GL_COLOR_BUFFER_BIT | /*GLES10.*/GL_DEPTH_BUFFER_BIT);
 				//gl.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 				//gl.glClear(GLES10.GL_COLOR_BUFFER_BIT|GLES10.GL_DEPTH_BUFFER_BIT);

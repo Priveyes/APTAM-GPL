@@ -26,7 +26,14 @@ ifneq (,$(filter $(TARGET_ARCH_ABI), armeabi-v7a x86 arm64-v8a x86_64))
     LOCAL_CFLAGS += -DLOCAL_ARM_NEON=1
     LOCAL_ARM_NEON  := true
     LOCAL_SRC_FILES += ../installfiles/cvd_src/NEON/convert_rgb_to_y.cc ../installfiles/cvd_src/NEON/half_sample.cc                      
+    $(warning Android NDK: Calling to use NEON.)
+    $(warning Android NDK: It's ok for fp=hard !)
+#    $(error Aborting.)
 else
+    $(warning Android NDK: Using vfp.)
+    $(warning Android NDK: it's ok for fp=softfp !)
+#    $(error Aborting.)
+
     LOCAL_SRC_FILES += ../installfiles/cvd_src/noarch/convert_rgb_to_y.cc ../installfiles/cvd_src/noarch/half_sample.cc                      
 endif
 LOCAL_CFLAGS += -pthread -D_REENTRANT=1 -DCVD_DISABLE_JPEG=1 -DCVD_DISABLE_TIFF=1

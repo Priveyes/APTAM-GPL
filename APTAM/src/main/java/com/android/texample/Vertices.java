@@ -122,9 +122,7 @@ public class Vertices {
 		int textshader = shaderid;
 		//GLES20.glEnableClientState( GLES20.GL_VERTEX_ARRAY ); // Enable Position in Vertices
 		vertices.position(0); // Set Vertex Buffer to Position
-		/*GLES20.*/
 		glEnableVertexAttribArray(/*GLES20.*/glGetAttribLocation(textshader, "position"));
-		/*GLES20.*/
 		glVertexAttribPointer(/*GLES20.*/glGetAttribLocation(textshader, "position"), positionCnt, /*GLES20.*/GL_FLOAT, false, vertexSize, vertices);
 		//GLES20.glVertexPointer( positionCnt, GLES20.GL_FLOAT, vertexSize, vertices );  // Set Vertex Pointer
 

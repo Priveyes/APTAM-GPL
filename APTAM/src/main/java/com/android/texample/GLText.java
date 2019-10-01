@@ -12,8 +12,6 @@
 
 package com.android.texample;
 
-//import javax.microedition.khronos.opengles.GL10;
-
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -38,8 +36,6 @@ import static android.opengl.GLES20.glDisable;
 import static android.opengl.GLES20.glEnable;
 import static android.opengl.GLES20.glGenTextures;
 import static android.opengl.GLES20.glTexParameterf;
-
-//import android.opengl.GLES20;
 
 public class GLText {
 
